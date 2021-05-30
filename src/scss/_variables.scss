@@ -1,0 +1,20 @@
+:root {
+	--color-theme: black;
+}
+$main-color: #0f0f0f;
+$sub-color: #151515;
+$accent-color: #363636;
+
+$fz-text: 18px;
+$fz-heading: 64px;
+
+$ff: "FuturaPT", sans-serif;
+
+$minWidth: 320;
+$maxWidth: 1920; // Разрешение макета
+$maxWidthContainer: 1492; // Разрешение контейнера
+
+$md1: $maxWidthContainer + 15; //desktop
+$md2: 991.98; // Tablet
+$md3: 767.98; // Mobile #1
+$md4: 479.98; // Mobile #2

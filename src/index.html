@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<!-- Кодировка -->
+	<meta charset="UTF-8">
+	<!-- Настройки viewport -->
+	<meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Отключение вызова текстовых номеров -->
+	<meta name="format-detection" content='telephone=no' />
+	<!--  
+		SEO META 
+			Краткое описание, ключевые слова
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+	
+			Индексирование странички
+		<meta name="robots" content="" />
+			Полный запрет - content="noindex, nofollow" или content="none"
+			Запрет индексации картинок и ссылок content="noimage, nofollow"
+			Информация
+		<meta name="Author" content="-" />
+		<meta name="Copyright" content="-" />
+		<meta name="Address" content="-" />
+	
+			Редирект | перенаправление
+		<meta http-equiv='refresh' content='0;url=' /> *0 - время перед началом переадресации в секундах, url - ссылка куда переадресовывать
+	
+	
+			Информации о странице, которая будет выводится в записи социальной сети при репосте сайта (Open Graph)
+			Локализация сайта
+		<meta property="og:locale" content="ru_RU" />
+	
+			Тип контента
+		<meta property="og:type" content="article" />
+	
+			Название сайта 
+		<meta property="og:site_name" content=""/>
+	
+			Заголовок страницы
+		<meta property="og:title" content=""/>
+	
+			Описание страницы 
+		<meta property="og:description" content=""/>
+	
+			Ссылка на текущую страницу
+		<meta property="og:url" content=""/>
+	
+			Изображение
+		<meta property="og:image" content=""/>  *вставить ссылку в content
+	
+	
+			Twitter Cards
+		<meta name="twitter:card" content="summary">
+	
+			Имя/логин автора 
+		<meta name="twitter:site" content="Имя">
+	
+			Название страницы 
+		<meta name="twitter:title" content="META теги">
+	
+			Описание страницы 
+		<meta name="twitter:description" content="про META теги">
+	
+			Cсылка на изображение
+		<meta name="twitter:image" content=""> *вставить ссылку в content	
+	-->
+
+	<!-- Подключаю только woff2, woff подгрузится если нужно
+		<link rel="preload" href="fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
+	<link rel="preload" href="fonts/Inter-Light.woff2" as="font" type="font/woff2" crossorigin />
+	<link rel="preload" href="fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+	<link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+	 -->
+
+	<link rel="icon" href="resources/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" sizes="180x180" href="resources/favicon.png" />
+
+	<!-- <link rel="stylesheet" href="resources/libs/swiper-bundle.min.css" /> -->
+	<link rel="stylesheet" href="css/main.min.css" />
+	<title>Title</title>
+</head>
+
+<body>
+	@include('_header.html')
+	<main class="main-content">
+		@include('_section.html')
+	</main>
+	@include('_footer.html')
+
+	<!-- @include('_modals.html') -->
+	<!-- <script src="resources/libs/swiper-bundle.min.js"></script> -->
+	<script src="js/main.js"></script>
+</body>
+
+</html>

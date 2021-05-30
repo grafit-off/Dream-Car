@@ -1,0 +1,99 @@
+// Settings
+*,
+*::before,
+*::after {
+	-moz-box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+html {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+	height: 100%;
+	width: 100%;
+	scroll-behavior: smooth;
+
+	font-size: 100%;
+	font-size: 14px;
+
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+
+	@extend %reset;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+
+	height: 100%;
+	width: 100%;
+
+	font-family: $ff;
+	font-weight: 400;
+	font-size: $fz-text;
+
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+.header {
+	flex: 0 0 auto;
+}
+
+.main-content {
+	flex: 1 0 auto;
+	overflow: hidden;
+}
+
+.footer {
+	flex: 0 0 auto;
+}
+
+.lock {
+	overflow: hidden;
+}
+
+.ios-lock {
+	overflow: hidden;
+	position: relative;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.container {
+	max-width: $maxWidthContainer + 30px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+}
+
+@media (max-width: $md2+px) and (orientation: portrait) {
+	.container {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+@media (max-width: $md3+px) and (orientation: portrait) {
+	.container {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+@media (max-height: $md4+px) and (max-width: 1023px) and (orientation: landscape) {
+	.container {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+// -- \\

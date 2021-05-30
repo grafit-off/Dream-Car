@@ -1,0 +1,97 @@
+/* Modal */
+/*  Объект для модального окна, чтобы страница не прокручивалась вверх  */
+.fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	opacity: 0;
+}
+/* ----- */
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	width: 100%;
+	height: 100%;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	opacity: 0;
+	visibility: hidden;
+	backface-visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.726);
+
+	transition: opacity 0.7s ease, visibility 0.7s ease;
+
+	&.open {
+		opacity: 1;
+		visibility: visible;
+	}
+	.modal.open &__content {
+		opacity: 1;
+		transform: translate(0px, 0px);
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		min-height: 90vh;
+		padding: 30px 10px;
+	}
+
+	&__content {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+
+		min-width: 600px;
+		min-height: 400px;
+		padding: 30px;
+
+		border-radius: 30px;
+		background-color: #f2eef7;
+		opacity: 0;
+		color: black;
+
+		transform: translate(0px, -100%);
+		transition: opacity 0.7s ease, transform 0.7s ease;
+	}
+
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 15px;
+
+		display: block;
+		align-self: flex-end;
+
+		background: transparent;
+		color: black;
+
+		font-size: 32px;
+		transition: all 0.2s ease-in;
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+	&__title {
+	}
+
+	&__close-image {
+		width: 15px;
+	}
+
+	&__desc {
+	}
+
+	&__body {
+	}
+}
+// -- //

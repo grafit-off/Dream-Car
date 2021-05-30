@@ -1,0 +1,125 @@
+/*! Basic */
+.visually-hidden {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+
+	height: 1px !important;
+	width: 1px !important;
+
+	padding: 0 !important;
+	border: 0 !important;
+
+	overflow: hidden;
+}
+/*! Reset classes */
+.btn-reset {
+	width: auto;
+
+	margin: 0;
+	padding: 0;
+
+	background: transparent;
+	color: inherit;
+
+	font-family: inherit;
+
+	font: inherit;
+	cursor: pointer;
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+	-webkit-appearance: none;
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+	&:focus:not(:focus-visible) {
+		outline: none;
+	}
+	@media (max-width: $md3+px) {
+		outline: none;
+	}
+	@extend %reset;
+}
+.link-reset {
+	color: inherit;
+
+	text-decoration: none;
+	&:visited {
+		text-decoration: none;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+	&:focus:not(:focus-visible) {
+		outline: none;
+	}
+	@media (max-width: $md3+px) {
+		outline: none;
+	}
+	@extend %reset;
+}
+.list-reset {
+	text-indent: 0;
+	list-style: none;
+	list-style-type: none;
+	@extend %reset;
+}
+.input-reset {
+	border: 0;
+	font-family: inherit;
+	&::-ms-clear {
+		display: none;
+	}
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-decoration {
+		-webkit-appearance: none;
+		appearance: none;
+	}
+	&:focus:not(:focus-visible) {
+		outline: none;
+	}
+	@media (max-width: $md3+px) {
+		outline: none;
+	}
+}
+.text-reset {
+	@extend %reset;
+	font-size: inherit;
+	font-weight: 400;
+}
+// -- //
+
+/*! Main classes */
+.text {
+	font-weight: 400;
+	font-size: $fz-text;
+	line-height: 1.1;
+	@media (max-width: $md2+px) {
+		font-size: 16px;
+	}
+	@media (max-width: $md3+px) {
+		font-size: 16px;
+	}
+	@media (max-width: $md4+px) {
+		font-size: 16px;
+	}
+}
+
+.main-heading {
+	font-size: $fz-heading;
+	font-weight: 700;
+	@media (max-width: $md1+px) {
+		font-size: 45px;
+	}
+	@media (max-width: $md2+px) {
+		font-size: 35px;
+	}
+	@media (max-width: $md3+px) {
+		font-size: 30px;
+	}
+	@media (max-width: $md4+px) {
+		font-size: 20px;
+	}
+}
+// -- //

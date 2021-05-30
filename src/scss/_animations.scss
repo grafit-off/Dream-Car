@@ -1,0 +1,10 @@
+/* // Example
+[data-animation="from-left"] {
+	transform: translate(-100%, 0);
+	transition: transform 0.3s ease;
+}
+[data-animation="from-left"].animated {
+	transform: translate(0, 0);
+	transition: transform 0.3s ease;
+}
+*/

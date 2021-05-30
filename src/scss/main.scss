@@ -1,0 +1,52 @@
+/* Normalize */
+@import "_modnormalize";
+//  //
+
+/* Mixins */
+@import "_mixins";
+//  //
+
+/*! Fonts */
+@import "_fonts";
+//  //
+
+/* Variables */
+@import "_variables";
+//  //
+
+/* Templates */
+%reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+%scroll-del {
+	&::-webkit-scrollbar {
+		// chrome based
+		width: 0px; // ширина scrollbar'a
+		background: transparent; // опционально
+	}
+	-ms-overflow-style: none; // IE 10+
+}
+// @extend %scroll-del;
+//  //
+
+/*! Components */
+/*! Common styles */
+@import "_common";
+
+/*! Settings */
+@import "_settings";
+
+/*! Header */
+@import "components/_header";
+
+// @import "components/";
+
+/*! Footer */
+@import "components/_footer";
+
+// /*! Modals  */
+// @import "components/_modals";
+// @import "_animations";
