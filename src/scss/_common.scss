@@ -87,39 +87,73 @@
 	@extend %reset;
 	font-size: inherit;
 	font-weight: 400;
+	font-style: normal;
 }
 // -- //
 
 /*! Main classes */
-.text {
-	font-weight: 400;
+
+.main-text {
 	font-size: $fz-text;
-	line-height: 1.1;
-	@media (max-width: $md2+px) {
-		font-size: 16px;
-	}
+	font-weight: 400;
+	line-height: 117%;
+
 	@media (max-width: $md3+px) {
-		font-size: 16px;
-	}
-	@media (max-width: $md4+px) {
 		font-size: 16px;
 	}
 }
-
 .main-heading {
 	font-size: $fz-heading;
 	font-weight: 700;
-	@media (max-width: $md1+px) {
-		font-size: 45px;
-	}
-	@media (max-width: $md2+px) {
-		font-size: 35px;
-	}
+	line-height: 72px / 60px * 100%;
+
 	@media (max-width: $md3+px) {
-		font-size: 30px;
+		font-size: 28px;
+	}
+}
+.main-btn {
+	padding: 14px 5px;
+
+	border: 1px solid var(--main-btn-border);
+	background-color: var(--main-btn-background);
+	color: var(--main-btn-color);
+
+	text-transform: uppercase;
+	text-align: center;
+	transition: color 0.3s ease, background-color 0.3s ease, border 0.3s ease;
+	@media (min-width: $md3+px) {
+		&:hover {
+			border: 1px solid var(--main-btn-border-hover);
+			background-color: var(--main-btn-background-hover);
+			color: var(--main-btn-color-hover);
+			transition: color 0.3s ease, background-color 0.3s ease, border 0.3s ease;
+		}
+		&:focus {
+			border: 1px solid var(--main-btn-border-hover);
+			background-color: var(--main-btn-background-hover);
+			color: var(--main-btn-color-hover);
+			transition: color 0.3s ease, background-color 0.3s ease, border 0.3s ease;
+		}
+	}
+	&--black {
+		border: 1px solid var(--main-btn-light-border);
+		background-color: var(--main-btn-light-background);
+		color: var(--main-btn-light-color);
+		@media (min-width: $md3+px) {
+			&:hover {
+				background-color: var(--main-btn-light-background-hover);
+				color: var(--main-btn-light-color-hover);
+				transition: color 0.3s ease, background-color 0.3s ease;
+			}
+			&:focus {
+				background-color: #fff;
+				color: #000;
+				transition: color 0.3s ease, background-color 0.3s ease;
+			}
+		}
 	}
 	@media (max-width: $md4+px) {
-		font-size: 20px;
+		font-size: 14px;
 	}
 }
 // -- //

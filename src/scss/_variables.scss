@@ -1,18 +1,51 @@
-:root {
-	--color-theme: black;
+html.light-theme {
+	--color-font: #000;
+	--color-pagination: #c4c4c4;
+	--color-pagination-active: #000;
+	--color-body: #fff;
+
+	--main-btn-border: #000;
+	--main-btn-background: #fff;
+	--main-btn-color: #000;
+	--main-btn-border-hover: #000;
+	--main-btn-background-hover: #000;
+	--main-btn-color-hover: #fff;
+
+	--main-btn-light-border: #000;
+	--main-btn-light-background: #000;
+	--main-btn-light-color: #fff;
+	--main-btn-light-border-hover: #000;
+	--main-btn-light-background-hover: #fff;
+	--main-btn-light-color-hover: #000;
 }
-$main-color: #0f0f0f;
-$sub-color: #151515;
-$accent-color: #363636;
+html.dark-theme {
+	--color-font: #fff;
+	--color-pagination: #888888;
+	--color-pagination-active: #fff;
+	--color-body: #191919;
 
-$fz-text: 18px;
-$fz-heading: 64px;
+	--main-btn-border: #fff;
+	--main-btn-background: #191919;
+	--main-btn-color: #fff;
+	--main-btn-border-hover: #fff;
+	--main-btn-background-hover: #fff;
 
-$ff: "FuturaPT", sans-serif;
+	--main-btn-light-border: #191919;
+	--main-btn-light-background: #fff;
+	--main-btn-light-color: #000;
+	--main-btn-light-border-hover: #000;
+	--main-btn-light-background-hover: #191919;
+	--main-btn-light-color-hover: #fff;
+}
+
+$fz-text: 24px;
+$fz-heading: 45px;
+
+$ff: "Roboto", sans-serif;
 
 $minWidth: 320;
 $maxWidth: 1920; // Разрешение макета
-$maxWidthContainer: 1492; // Разрешение контейнера
+$maxWidthContainer: 1280; // Разрешение контейнера
 
 $md1: $maxWidthContainer + 15; //desktop
 $md2: 991.98; // Tablet

@@ -9,12 +9,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- Отключение вызова текстовых номеров -->
 	<meta name="format-detection" content='telephone=no' />
-	<!--  
-		SEO META 
-			Краткое описание, ключевые слова
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-	
+
+	<!-- 	 SEO META  Краткое описание, ключевые слова-->
+	<meta name="description" content="ШЬЁМ ЭВА КОВРИКИ В БРЯНСКЕ. Делаем только качественную продукцию, именно поэтому работаем только с проверенным полотном и фурнитурой." />
+	<meta name="keywords" content="Шитье, коврики, ЭВА коврики, Эва, Брянск" />
+	<!-- 	 
 			Индексирование странички
 		<meta name="robots" content="" />
 			Полный запрет - content="noindex, nofollow" или content="none"
@@ -67,30 +66,26 @@
 		<meta name="twitter:image" content=""> *вставить ссылку в content	
 	-->
 
-	<!-- Подключаю только woff2, woff подгрузится если нужно
-		<link rel="preload" href="fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin />
-	<link rel="preload" href="fonts/Inter-Light.woff2" as="font" type="font/woff2" crossorigin />
-	<link rel="preload" href="fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
-	<link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
-	 -->
+
+	<link rel="preload" href="fonts/Roboto-Bold.woff2" as="font" type="font/woff2" crossorigin />
+	<link rel="preload" href="fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin />
+
 
 	<link rel="icon" href="resources/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="resources/favicon.png" />
 
-	<!-- <link rel="stylesheet" href="resources/libs/swiper-bundle.min.css" /> -->
 	<link rel="stylesheet" href="css/main.min.css" />
-	<title>Title</title>
+	<title>DREAM CAR - качественная продукция шиться ЭВА ковриков в Брянске</title>
 </head>
 
 <body>
 	@include('_header.html')
 	<main class="main-content">
-		@include('_section.html')
+		@include('_hero-section.html')
 	</main>
 	@include('_footer.html')
 
-	<!-- @include('_modals.html') -->
-	<!-- <script src="resources/libs/swiper-bundle.min.js"></script> -->
+	<script src="resources/libs/swiper-bundle.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 
