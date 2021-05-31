@@ -94,6 +94,7 @@
 /*! Main classes */
 
 .main-text {
+	color: var(--color-font);
 	font-size: $fz-text;
 	font-weight: 400;
 	line-height: 117%;
@@ -103,9 +104,12 @@
 	}
 }
 .main-heading {
+	color: var(--color-font);
+
 	font-size: $fz-heading;
 	font-weight: 700;
 	line-height: 72px / 60px * 100%;
+	text-transform: uppercase;
 
 	@media (max-width: $md3+px) {
 		font-size: 28px;
