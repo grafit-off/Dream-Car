@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			el.addEventListener("transitionend", () => {
 				if (el.style.height !== "0px") {
 					el.style.height = "auto";
+
 				}
 			});
 		});
@@ -127,17 +128,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	imgList.addEventListener('click', (e) => {
 		let image = e.target;
-		let mainImgSrc = mainImg.getAttribute('src');
-		let mainImgAlt = mainImg.getAttribute('alt');
+		if (image.classList.contains('preview-item__image')) {
+			console.log('yes');
+			let mainImgSrc = mainImg.getAttribute('src');
+			let mainImgAlt = mainImg.getAttribute('alt');
 
-		let imageSrc = image.getAttribute('src');
-		let imageAlt = image.getAttribute('alt');
+			let imageSrc = image.getAttribute('src');
+			let imageAlt = image.getAttribute('alt');
 
-		mainImg.setAttribute('src', `${imageSrc}`);
-		mainImg.setAttribute('alt', `${imageAlt}`);
+			mainImg.setAttribute('src', `${imageSrc}`);
+			mainImg.setAttribute('alt', `${imageAlt}`);
 
-		image.setAttribute('src', `${mainImgSrc}`);
-		image.setAttribute('alt', `${mainImgAlt}`);
+			image.setAttribute('src', `${mainImgSrc}`);
+			image.setAttribute('alt', `${mainImgAlt}`);
+		}
 	})
 	// -- //
 });

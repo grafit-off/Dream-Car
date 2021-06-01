@@ -65,8 +65,10 @@
 	}
 
 	&__builder {
-		flex: 0 0 50%;
+		flex: 0 0 calc(50% - 25px);
+		margin-left: 25px;
 		@media (max-width: $md2+px) {
+			margin-left: 0;
 			flex: 0 0 100%;
 		}
 	}
@@ -158,8 +160,65 @@
 .builder {
 	padding-top: 10px;
 	border-top: 1px solid #c4c4c4;
+	&__design {
+	}
+
+	&__heel {
+	}
+
+	&__check {
+	}
+
+	&__schild {
+	}
+
+	&__front-row {
+	}
+
+	&__back-row {
+	}
+
+	&__trunk {
+	}
 }
 
+.design {
+	&__shape {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__label {
+		flex: 0 0 100%;
+	}
+
+	&__radio {
+	}
+
+	&__canvas {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__edging {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.schild {
+	&__label {
+	}
+
+	&__input {
+	}
+
+	&__buttons {
+	}
+
+	&__minus {
+	}
+}
 /* Radio */
 .radio {
 	display: flex;
@@ -198,6 +257,42 @@
 			transform: translate(-50%, -50%);
 			transition: opacity 0.2s ease;
 		}
+		&--rhombus {
+		}
+		&--honeycomb {
+		}
+		&--black {
+		}
+
+		&--grey {
+		}
+
+		&--red {
+		}
+
+		&--blue {
+		}
+
+		&--green {
+		}
+
+		&--yellow {
+		}
+
+		&--purple {
+		}
+
+		&--pink {
+		}
+
+		&--brown {
+		}
+
+		&--white {
+		}
+
+		&--light-blue {
+		}
 	}
 	/* Checked */
 	&__input:checked + &__box::before {
@@ -228,6 +323,7 @@
 	}
 	// -- //
 }
+
 // -- //
 
 /* Check */
