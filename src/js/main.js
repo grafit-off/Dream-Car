@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-
 	themeSwitcher.addEventListener('click', themeToggle);
 
 	// Hero Swiper
@@ -122,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		4. Заменить src, alt выводимого изображения на src,alt картинки по которой произошел клик
 			из переменной и заменить src,alt картинки по которой произошел клик
 			на src,alt выводимого изображения.
+		?Почему бы просто не забрать сам елемент, в чем смысл игры с alt и src?
 	*/
 	const mainImg = document.querySelector('.image-preview__current');
 	const imgList = document.querySelector('.image-preview__list');

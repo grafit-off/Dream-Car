@@ -46,16 +46,20 @@
 		transition: height 500ms ease;
 	}
 	&__content {
+		display: flex;
+		flex-wrap: wrap;
+
 		margin-top: 25px;
 	}
-	&__text {
+	&__info {
+		flex: 0 0 100%;
 		margin-bottom: 25px;
 	}
-}
-
-.constructor-form {
-	display: flex;
-	flex-wrap: wrap;
+	&__text {
+		&:not(:last-child) {
+			margin-bottom: 25px;
+		}
+	}
 	&__image-preview {
 		flex: 0 0 50%;
 		@media (max-width: $md2+px) {
@@ -63,14 +67,18 @@
 			margin-bottom: 20px;
 		}
 	}
-
-	&__builder {
+	&__constructor-form {
 		flex: 0 0 calc(50% - 25px);
 		margin-left: 25px;
 		@media (max-width: $md2+px) {
 			margin-left: 0;
 			flex: 0 0 100%;
 		}
+	}
+	&__builder {
+	}
+	&__order-info {
+		flex: 0 0 100%;
 	}
 }
 

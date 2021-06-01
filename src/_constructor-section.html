@@ -12,51 +12,53 @@
 				</h2>
 				<div class="accordion__body" aria-hidden="true">
 					<div class="accordion__content">
-						<p class="accordion__text main-text text-reset">
-							Создайте собственный дизайн ковриков!
-						</p>
-						<p class="accordion__text main-text text-reset">
-							Выберите форму ячейки, цвет полотна и окантовки, а затем подходящую вам комплектацию!
-						</p>
-						<form action="https://jsonplaceholder.typicode.com/posts" class="constructor-form" method="POST" name="constructor-form">
-							<div class="constructor-form__image-preview image-preview">
-								<div class="image-preview__main">
-									<img src="img/preview1.jpg" alt="Черный коврик с серой окантовкой и ромбовидной формой ячейки" class="image-preview__current">
-								</div>
-								<ul class="image-preview__list list-reset">
-									<li class="image-preview__item preview-item">
-										<button type="button" class="preview-item__btn btn-reset">
-											<img src="img/preview2.jpg" alt="Черный коврик с красной окантовкой и ромбовидной формой ячейки" class="preview-item__image">
-										</button>
-									</li>
-									<li class="image-preview__item preview-item">
-										<button type="button" class="preview-item__btn btn-reset">
-											<img src="img/preview3.jpg" alt="Черный коврик с красной окантовкой и ромбовидной формой ячейки" class="preview-item__image">
-										</button>
-									</li>
-									<li class="image-preview__item preview-item">
-										<button type="button" class="preview-item__btn btn-reset">
-											<img src="img/preview4.jpg" alt="Черный коврик с черной окантовкой и формой ячейки сота" class="preview-item__image">
-										</button>
-									</li>
-									<li class="image-preview__item preview-item">
-										<button type="button" class="preview-item__btn btn-reset">
-											<img src="img/preview5.jpg" alt="Черный коврик с желтой окантовкой и ромбовидной формой ячейки" class="preview-item__image">
-										</button>
-									</li>
-									<li class="image-preview__item preview-item">
-										<button type="button" class="preview-item__btn btn-reset">
-											<img src="img/preview6.jpg" alt="Черный коврик с черной окантовкой и формой ячейки сота" class="preview-item__image">
-										</button>
-									</li>
-									<li class="image-preview__item preview-item">
-										<button type="button" class="preview-item__btn btn-reset">
-											<img src="img/preview7.jpg" alt="Черный коврик с синей окантовкой и ромбовидной формой ячейки" class="preview-item__image">
-										</button>
-									</li>
-								</ul>
+						<div class="accordion__info">
+							<p class="accordion__text main-text text-reset">
+								Создайте собственный дизайн ковриков!
+							</p>
+							<p class="accordion__text main-text text-reset">
+								Выберите форму ячейки, цвет полотна и окантовки, а затем подходящую вам комплектацию!
+							</p>
+						</div>
+						<div class="accordion__image-preview image-preview">
+							<div class="image-preview__main">
+								<img src="img/preview1.jpg" alt="Черный коврик с серой окантовкой и ромбовидной формой ячейки" class="image-preview__current">
 							</div>
-							<fieldset class="constructor-form__builder builder main-text">
+							<ul class="image-preview__list list-reset">
+								<li class="image-preview__item preview-item">
+									<button type="button" class="preview-item__btn btn-reset">
+										<img src="img/preview2.jpg" alt="Черный коврик с красной окантовкой и ромбовидной формой ячейки" class="preview-item__image">
+									</button>
+								</li>
+								<li class="image-preview__item preview-item">
+									<button type="button" class="preview-item__btn btn-reset">
+										<img src="img/preview3.jpg" alt="Черный коврик с красной окантовкой и ромбовидной формой ячейки" class="preview-item__image">
+									</button>
+								</li>
+								<li class="image-preview__item preview-item">
+									<button type="button" class="preview-item__btn btn-reset">
+										<img src="img/preview4.jpg" alt="Черный коврик с черной окантовкой и формой ячейки сота" class="preview-item__image">
+									</button>
+								</li>
+								<li class="image-preview__item preview-item">
+									<button type="button" class="preview-item__btn btn-reset">
+										<img src="img/preview5.jpg" alt="Черный коврик с желтой окантовкой и ромбовидной формой ячейки" class="preview-item__image">
+									</button>
+								</li>
+								<li class="image-preview__item preview-item">
+									<button type="button" class="preview-item__btn btn-reset">
+										<img src="img/preview6.jpg" alt="Черный коврик с черной окантовкой и формой ячейки сота" class="preview-item__image">
+									</button>
+								</li>
+								<li class="image-preview__item preview-item">
+									<button type="button" class="preview-item__btn btn-reset">
+										<img src="img/preview7.jpg" alt="Черный коврик с синей окантовкой и ромбовидной формой ячейки" class="preview-item__image">
+									</button>
+								</li>
+							</ul>
+						</div>
+						<form action="https://jsonplaceholder.typicode.com/posts" class="accordion__constructor-form" id="form" method="POST" name="constructor-form">
+							<fieldset class="accordion__builder builder main-text">
 								<div class="builder__design design">
 									<div class="design__shape">
 										<span class="design__label">Форма ячейки:</span>
@@ -208,10 +210,11 @@
 										<span class="check__box"></span>
 									</label>
 								</div>
-								<button>Submit</button>
 							</fieldset>
-
 						</form>
+						<div class="accordion__order-info order-info">
+							<button class="order-info__btn" form="form">Отправить заказ</button>
+						</div>
 					</div>
 				</div>
 			</div>
