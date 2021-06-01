@@ -4,9 +4,10 @@
 *::after {
 	-moz-box-sizing: inherit;
 	-webkit-box-sizing: inherit;
-	box-sizing: border-box;
+	box-sizing: inherit;
 }
 
+html,
 .html {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;

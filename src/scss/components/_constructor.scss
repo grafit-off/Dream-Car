@@ -6,12 +6,16 @@
 
 /* Стили аккордеона */
 .accordion {
+	position: relative;
 	&__item {
 		&:not(:last-child) {
 			padding-bottom: 10px;
 			margin-bottom: 10px;
 			border-bottom: 1px solid #000;
 		}
+	}
+	&__heading {
+		margin-bottom: 25px;
 	}
 	&__trigger {
 		position: relative;
@@ -48,8 +52,7 @@
 	&__content {
 		display: flex;
 		flex-wrap: wrap;
-
-		margin-top: 25px;
+		// margin-top: 25px;
 	}
 	&__info {
 		flex: 0 0 100%;
@@ -230,8 +233,8 @@
 	}
 	&__buttons {
 		display: flex;
-		flex-wrap: nowrap;
-		overflow: scroll;
+		flex-wrap: wrap;
+
 		width: 100%;
 		@extend %scroll-del;
 	}
@@ -252,7 +255,7 @@
 }
 /* Radio */
 .radio {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	&:not(:last-child) {
 		margin-right: 10px;
@@ -292,9 +295,11 @@
 			transition: opacity 0.2s ease;
 		}
 		&--rhombus {
+			margin-right: 10px;
 			background: url(../img/rhombus.jpg) center/115% 115% no-repeat;
 		}
 		&--honeycomb {
+			margin-right: 10px;
 			background: url(../img/honeycomb.jpg) center/115% 115% no-repeat;
 		}
 		&--black {
