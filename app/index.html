@@ -164,198 +164,216 @@
 								Выберите форму ячейки, цвет полотна и окантовки, а затем подходящую вам комплектацию!
 							</p>
 						</div>
-						<div class="accordion__image-preview image-preview">
-							<div class="image-preview__main">
-								<img src="img/preview1.jpg" alt="Черный коврик с серой окантовкой и ромбовидной формой ячейки" class="image-preview__current">
+						<div class="accordion__row">
+							<div class="accordion__image-preview image-preview">
+								<div class="image-preview__main">
+									<img src="img/preview1.jpg" alt="Черный коврик с серой окантовкой и ромбовидной формой ячейки" class="image-preview__current">
+								</div>
+								<ul class="image-preview__list list-reset">
+									<li class="image-preview__item preview-item">
+										<button type="button" class="preview-item__btn btn-reset">
+											<img src="img/preview2.jpg" alt="Черный коврик с красной окантовкой и ромбовидной формой ячейки" class="preview-item__image">
+										</button>
+									</li>
+									<li class="image-preview__item preview-item">
+										<button type="button" class="preview-item__btn btn-reset">
+											<img src="img/preview3.jpg" alt="Черный коврик с красной окантовкой и ромбовидной формой ячейки" class="preview-item__image">
+										</button>
+									</li>
+									<li class="image-preview__item preview-item">
+										<button type="button" class="preview-item__btn btn-reset">
+											<img src="img/preview4.jpg" alt="Черный коврик с черной окантовкой и формой ячейки сота" class="preview-item__image">
+										</button>
+									</li>
+									<li class="image-preview__item preview-item">
+										<button type="button" class="preview-item__btn btn-reset">
+											<img src="img/preview5.jpg" alt="Черный коврик с желтой окантовкой и ромбовидной формой ячейки" class="preview-item__image">
+										</button>
+									</li>
+									<li class="image-preview__item preview-item">
+										<button type="button" class="preview-item__btn btn-reset">
+											<img src="img/preview6.jpg" alt="Черный коврик с черной окантовкой и формой ячейки сота" class="preview-item__image">
+										</button>
+									</li>
+									<li class="image-preview__item preview-item">
+										<button type="button" class="preview-item__btn btn-reset">
+											<img src="img/preview7.jpg" alt="Черный коврик с синей окантовкой и ромбовидной формой ячейки" class="preview-item__image">
+										</button>
+									</li>
+								</ul>
 							</div>
-							<ul class="image-preview__list list-reset">
-								<li class="image-preview__item preview-item">
-									<button type="button" class="preview-item__btn btn-reset">
-										<img src="img/preview2.jpg" alt="Черный коврик с красной окантовкой и ромбовидной формой ячейки" class="preview-item__image">
-									</button>
-								</li>
-								<li class="image-preview__item preview-item">
-									<button type="button" class="preview-item__btn btn-reset">
-										<img src="img/preview3.jpg" alt="Черный коврик с красной окантовкой и ромбовидной формой ячейки" class="preview-item__image">
-									</button>
-								</li>
-								<li class="image-preview__item preview-item">
-									<button type="button" class="preview-item__btn btn-reset">
-										<img src="img/preview4.jpg" alt="Черный коврик с черной окантовкой и формой ячейки сота" class="preview-item__image">
-									</button>
-								</li>
-								<li class="image-preview__item preview-item">
-									<button type="button" class="preview-item__btn btn-reset">
-										<img src="img/preview5.jpg" alt="Черный коврик с желтой окантовкой и ромбовидной формой ячейки" class="preview-item__image">
-									</button>
-								</li>
-								<li class="image-preview__item preview-item">
-									<button type="button" class="preview-item__btn btn-reset">
-										<img src="img/preview6.jpg" alt="Черный коврик с черной окантовкой и формой ячейки сота" class="preview-item__image">
-									</button>
-								</li>
-								<li class="image-preview__item preview-item">
-									<button type="button" class="preview-item__btn btn-reset">
-										<img src="img/preview7.jpg" alt="Черный коврик с синей окантовкой и ромбовидной формой ячейки" class="preview-item__image">
-									</button>
-								</li>
-							</ul>
-						</div>
-						<form action="https://jsonplaceholder.typicode.com/posts" class="accordion__constructor-form" id="form" method="POST" name="constructor-form">
-							<fieldset class="accordion__builder builder main-text">
-								<div class="builder__design design">
-									<div class="design__shape">
-										<span class="design__label">Форма ячейки:</span>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Форма ячейки" value="Ромб" required>
-											<span class="radio__box radio__box--rhombus"></span>
-											<span class="radio__text">
-												Ромб
-											</span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Форма ячейки" value="Сота">
-											<span class="radio__box radio__box--honeycomb"></span>
-											<span class="radio__text">
-												Сота
-											</span>
+							<form action="https://jsonplaceholder.typicode.com/posts" class="accordion__constructor-form" id="form" method="POST" name="constructor-form">
+								<fieldset class="accordion__builder builder main-text">
+									<div class="builder__design design">
+										<div class="design__shape">
+											<span class="design__label">Форма ячейки:</span>
+											<label class="design__radio-shape radio">
+												<input class="radio__input visually-hidden" checked type="radio" name="Форма ячейки" value="Ромб" required>
+												<span class="radio__box radio__box--rhombus"></span>
+												<span class="radio__text">
+													Ромб
+												</span>
+											</label>
+											<label class="design__radio radio">
+												<input class="radio__input visually-hidden" type="radio" name="Форма ячейки" value="Сота">
+												<span class="radio__box radio__box--honeycomb"></span>
+												<span class="radio__text">
+													Сота
+												</span>
+											</label>
+										</div>
+										<div class="design__canvas">
+											<span class="design__label">Цвет полотна:</span>
+											<div class="design__buttons">
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Черный" required>
+													<span class="radio__box radio__box--black"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Серый">
+													<span class="radio__box radio__box--grey"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Красный">
+													<span class="radio__box radio__box--red"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Синий">
+													<span class="radio__box radio__box--blue"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Зеленый">
+													<span class="radio__box radio__box--green"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Желтый">
+													<span class="radio__box radio__box--yellow"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Фиолетовый">
+													<span class="radio__box radio__box--purple"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Розовый">
+													<span class="radio__box radio__box--pink"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Коричневый">
+													<span class="radio__box radio__box--brown"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Белый">
+													<span class="radio__box radio__box--white"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="голубой">
+													<span class="radio__box radio__box--light-blue"></span>
+												</label>
+											</div>
+										</div>
+										<div class="design__edging">
+											<span class="design__label">Цвет окантовки:</span>
+											<div class="design__buttons">
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Черный" required>
+													<span class="radio__box radio__box--black"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Черный" required>
+													<span class="radio__box radio__box--black"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Черный" required>
+													<span class="radio__box radio__box--black"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Черный" required>
+													<span class="radio__box radio__box--black"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Серый">
+													<span class="radio__box radio__box--grey"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Красный">
+													<span class="radio__box radio__box--red"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Синий">
+													<span class="radio__box radio__box--blue"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Зеленый">
+													<span class="radio__box radio__box--green"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Желтый">
+													<span class="radio__box radio__box--yellow"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Фиолетовый">
+													<span class="radio__box radio__box--purple"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Розовый">
+													<span class="radio__box radio__box--pink"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Коричневый">
+													<span class="radio__box radio__box--brown"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Белый">
+													<span class="radio__box radio__box--white"></span>
+												</label>
+												<label class="design__radio radio">
+													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="голубой">
+													<span class="radio__box radio__box--light-blue"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="builder__heel">
+										<label class="builder__check check">
+											<span class="check__text">Металлический подпятник </span>
+											<input class="check__input visually-hidden" type="checkbox" name="Параметры[]" value="Металлический подпятник">
+											<span class="check__box"></span>
 										</label>
 									</div>
-									<div class="design__canvas">
-										<span class="design__label">Цвет полотна:</span>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Черный" required>
-											<span class="radio__box radio__box--black"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Серый">
-											<span class="radio__box radio__box--grey"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Красный">
-											<span class="radio__box radio__box--red"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Синий">
-											<span class="radio__box radio__box--blue"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Зеленый">
-											<span class="radio__box radio__box--green"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Желтый">
-											<span class="radio__box radio__box--yellow"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Фиолетовый">
-											<span class="radio__box radio__box--purple"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Розовый">
-											<span class="radio__box radio__box--pink"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Коричневый">
-											<span class="radio__box radio__box--brown"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Белый">
-											<span class="radio__box radio__box--white"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="голубой">
-											<span class="radio__box radio__box--light-blue"></span>
-										</label>
-									</div>
-									<div class="design__edging">
-										<span class="design__label">Цвет окантовки:</span>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Черный" required>
-											<span class="radio__box radio__box--black"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Серый">
-											<span class="radio__box radio__box--grey"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Красный">
-											<span class="radio__box radio__box--red"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Синий">
-											<span class="radio__box radio__box--blue"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Зеленый">
-											<span class="radio__box radio__box--green"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Желтый">
-											<span class="radio__box radio__box--yellow"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Фиолетовый">
-											<span class="radio__box radio__box--purple"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Розовый">
-											<span class="radio__box radio__box--pink"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Коричневый">
-											<span class="radio__box radio__box--brown"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Белый">
-											<span class="radio__box radio__box--white"></span>
-										</label>
-										<label class="design__radio radio">
-											<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="голубой">
-											<span class="radio__box radio__box--light-blue"></span>
-										</label>
-									</div>
-								</div>
-								<div class="builder__heel">
-									<label class="builder__check check">
-										<span class="check__text">Металлический подпятник </span>
-										<input class="check__input visually-hidden" type="checkbox" name="Параметры[]" value="Металлический подпятник">
-										<span class="check__box"></span>
-									</label>
-								</div>
-								<div class="builder__schild schild">
-									<span class="schild__label">
-										Фирменные шильды: <input class="schild__input" type="number" name="Фирменные шильды (шт.)" min="0" max="100" value="1"> шт.
-									</span>
+									<div class="builder__schild schild">
+										<span class="schild__label">
+											Фирменные шильды: <input class="schild__input" type="number" name="Фирменные шильды (шт.)" min="0" max="100" value="1"> шт.
+										</span>
 
-									<div class="schild__buttons">
-										<button class="schild__minus btn-reset" type="button" aria-label="Удалить">- </button>
-										<button class="schild__minus  btn-reset" type="button" aria-label="Добавить"> +</button>
+										<div class="schild__buttons">
+											<button class="schild__minus btn-reset" type="button" aria-label="Удалить">- </button>
+											<button class="schild__minus  btn-reset" type="button" aria-label="Добавить"> +</button>
+										</div>
 									</div>
-								</div>
-								<div class="builder__front-row">
-									<label class="builder__check check">
-										<span class="check__text">Передний ряд </span>
-										<input class="check__input visually-hidden" type="checkbox" name="Параметры[]" value="Передний ряд">
-										<span class="check__box"></span>
-									</label>
-								</div>
-								<div class="builder__back-row">
-									<label class="builder__check check">
-										<span class="check__text">Задний ряд </span>
-										<input class="check__input visually-hidden" type="checkbox" name="Параметры[]" value="Задний ряд">
-										<span class="check__box"></span>
-									</label>
-								</div>
-								<div class="builder__trunk">
-									<label class="builder__check check">
-										<span class="check__text">Багажник / от 1000р </span>
-										<input class="check__input visually-hidden" type="checkbox" name="Параметры[]" value="Багажник">
-										<span class="check__box"></span>
-									</label>
-								</div>
-							</fieldset>
-						</form>
+									<div class="builder__front-row">
+										<label class="builder__check check">
+											<span class="check__text">Передний ряд </span>
+											<input class="check__input visually-hidden" type="checkbox" name="Параметры[]" value="Передний ряд">
+											<span class="check__box"></span>
+										</label>
+									</div>
+									<div class="builder__back-row">
+										<label class="builder__check check">
+											<span class="check__text">Задний ряд </span>
+											<input class="check__input visually-hidden" type="checkbox" name="Параметры[]" value="Задний ряд">
+											<span class="check__box"></span>
+										</label>
+									</div>
+									<div class="builder__trunk">
+										<label class="builder__check check">
+											<span class="check__text">Багажник / от 1000р </span>
+											<input class="check__input visually-hidden" type="checkbox" name="Параметры[]" value="Багажник">
+											<span class="check__box"></span>
+										</label>
+									</div>
+								</fieldset>
+							</form>
+						</div>
 						<div class="accordion__order-info order-info">
 							<button class="order-info__btn" form="form">Отправить заказ</button>
 						</div>

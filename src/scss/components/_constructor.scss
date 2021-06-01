@@ -60,6 +60,11 @@
 			margin-bottom: 25px;
 		}
 	}
+	&__row {
+		flex: 0 0 100%;
+		display: flex;
+		flex-wrap: nowrap;
+	}
 	&__image-preview {
 		flex: 0 0 50%;
 		@media (max-width: $md2+px) {
@@ -169,21 +174,26 @@
 	padding-top: 10px;
 	border-top: 1px solid #c4c4c4;
 	&__design {
+		margin-bottom: 15px;
 	}
 
 	&__heel {
+		margin-bottom: 15px;
 	}
 
 	&__check {
 	}
 
 	&__schild {
+		margin-bottom: 15px;
 	}
 
 	&__front-row {
+		margin-bottom: 15px;
 	}
 
 	&__back-row {
+		margin-bottom: 15px;
 	}
 
 	&__trunk {
@@ -194,23 +204,36 @@
 	&__shape {
 		display: flex;
 		flex-wrap: wrap;
+		margin-bottom: 15px;
 	}
 
 	&__label {
 		flex: 0 0 100%;
+		margin-bottom: 15px;
 	}
 
-	&__radio {
+	&__radio-shape {
+		&:not(:last-child) {
+			margin-right: 50px !important;
+		}
 	}
 
 	&__canvas {
 		display: flex;
 		flex-wrap: wrap;
+		margin-bottom: 15px;
 	}
 
 	&__edging {
 		display: flex;
 		flex-wrap: wrap;
+	}
+	&__buttons {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow: scroll;
+		width: 100%;
+		@extend %scroll-del;
 	}
 }
 
@@ -231,6 +254,9 @@
 .radio {
 	display: flex;
 	align-items: center;
+	&:not(:last-child) {
+		margin-right: 10px;
+	}
 	&__text {
 		user-select: none;
 		cursor: pointer;
@@ -238,16 +264,16 @@
 	&__box {
 		position: relative;
 		display: inline-block;
-		width: 20px;
-		height: 20px;
-		margin-right: 10px;
-		overflow: hidden;
+		width: 40px;
+		height: 40px;
 
-		border: 3px solid #4a90e2;
+		border: 2px solid transparent;
 		border-radius: 50%;
 		background-color: #fff;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 		cursor: pointer;
+		transition: border 0.3s ease;
 		&::before {
 			content: "";
 
@@ -255,69 +281,85 @@
 			top: 50%;
 			left: 50%;
 
-			width: 12px;
-			height: 12px;
+			width: 100%;
+			height: 100%;
 			overflow: hidden;
 
 			opacity: 0;
 			border-radius: 50%;
-			background-color: #4a90e2;
+			background-color: rgba(136, 136, 136, 0.493);
 			transform: translate(-50%, -50%);
 			transition: opacity 0.2s ease;
 		}
 		&--rhombus {
+			background: url(../img/rhombus.jpg) center/115% 115% no-repeat;
 		}
 		&--honeycomb {
+			background: url(../img/honeycomb.jpg) center/115% 115% no-repeat;
 		}
 		&--black {
+			background-color: black;
 		}
 
 		&--grey {
+			background-color: grey;
 		}
 
 		&--red {
+			background-color: red;
 		}
 
 		&--blue {
+			background-color: blue;
 		}
 
 		&--green {
+			background-color: green;
 		}
 
 		&--yellow {
+			background-color: yellow;
 		}
 
 		&--purple {
+			background-color: purple;
 		}
 
 		&--pink {
+			background-color: pink;
 		}
 
 		&--brown {
+			background-color: brown;
 		}
 
 		&--white {
+			background-color: white;
 		}
 
 		&--light-blue {
+			background-color: aqua;
 		}
 	}
 	/* Checked */
-	&__input:checked + &__box::before {
-		opacity: 1;
-		transition: opacity 0.2s ease;
+	&__input:checked + &__box {
+		border: 2px solid #70d03a;
 	}
 	// -- //
 
 	/* Focused */
 	&__input:focus + &__box {
-		border: 3px solid #70d03a;
+		border: 2px solid #70d03a;
 	}
 	// -- //
 
 	/* Disabled */
 	&__input:disabled + &__box {
-		border: 3px solid #9b9b9b;
+		border: 2px solid #9b9b9b;
+		&::before {
+			opacity: 1;
+			transition: opacity 0.3s ease;
+		}
 	}
 	&__input:disabled ~ * {
 		cursor: default;
