@@ -92,16 +92,17 @@ document.addEventListener("DOMContentLoaded", () => {
 					el.setAttribute("aria-expanded", "false");
 					elBody.setAttribute("aria-hidden", "true");
 				}
-			});
-		});
-		bodyElements.forEach((el) => {
-			el.addEventListener("transitionend", () => {
-				if (el.style.height !== "0px") {
-					el.style.height = "auto";
+				bodyElements.forEach((el) => {
+					el.addEventListener("transitionend", () => {
+						if (el.style.height !== "0px") {
+							el.style.height = "auto";
 
-				}
+						}
+					});
+				});
 			});
 		});
+
 	};
 	accordionsToggle(accordionTrigger, accordionBody);
 	// -- //
