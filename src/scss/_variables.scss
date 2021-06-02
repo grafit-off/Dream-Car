@@ -17,6 +17,8 @@ html.light-theme {
 	--main-btn-light-border-hover: #000;
 	--main-btn-light-background-hover: #fff;
 	--main-btn-light-color-hover: #000;
+
+	--order-background: #e5e5e5;
 }
 html.dark-theme {
 	--color-font: #fff;
@@ -36,6 +38,8 @@ html.dark-theme {
 	--main-btn-light-border-hover: #000;
 	--main-btn-light-background-hover: #191919;
 	--main-btn-light-color-hover: #fff;
+
+	--order-background: #303030;
 }
 
 $fz-text: 24px;

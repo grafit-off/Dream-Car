@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 	// Includes
 	// @include('_animateOnScroll.js');
+	// @include('_scrollLockIOS.js');
+	// @include('_modal.js');
 	// -- //
 
 	// Header Theme Switcher
@@ -130,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	imgList.addEventListener('click', (e) => {
 		let image = e.target;
 		if (image.classList.contains('preview-item__image')) {
-			console.log('yes');
 			let mainImgSrc = mainImg.getAttribute('src');
 			let mainImgAlt = mainImg.getAttribute('alt');
 
@@ -144,6 +145,125 @@ document.addEventListener("DOMContentLoaded", () => {
 			image.setAttribute('alt', `${mainImgAlt}`);
 		}
 	})
+
+	// Number Spinner
+	const schildSpinner = document.querySelector('.schild__input');
+	const btnPlus = document.querySelector('.schild__plus');
+	const btnMinus = document.querySelector('.schild__minus');
+
+	const spinnerIncr = () => {
+		let value = parseInt(schildSpinner.value, 10);
+		value = !isNaN(value) ? ++value : 0;
+		if (value > 100) {
+			value = 0;
+		}
+		schildSpinner.value = value;
+	}
+	const spinnerDecr = () => {
+		let value = parseInt(schildSpinner.value, 10);
+		value = !isNaN(value) ? --value : 0;
+		if (value < 0) {
+			value = 100;
+		}
+		schildSpinner.value = value;
+	}
+
 	// -- //
+
+	// Generate Order List and Price
+	const orderList = document.querySelector('.order-info__list');
+	const heelInp = document.querySelector('input[value="Металлический подпятник"]');
+	const frontRowInp = document.querySelector('input[value="Передний ряд"]');
+	const backRowInp = document.querySelector('input[value="Задний ряд"]');
+	const trunkInp = document.querySelector('input[value="Багажник"]');
+	const orderPrice = document.querySelector('.price-block__price');
+	let orderSum = 0;
+	let schildSum = 0;
+
+	const generateOrderPrice = () => {
+		orderPrice.textContent = orderSum + schildSum;
+	}
+
+	const createClearEl = () => {
+		if (orderList.children.length === 0) {
+			const elem = document.createElement('li');
+			elem.className = `order-info__item main-text order-clear`;
+			elem.textContent = ` Здесь пусто`;
+			orderList.append(elem);
+		}
+	}
+
+	const generateListItem = (item, className, text, price) => {
+		if (item.checked) {
+			orderSum += price;
+
+			const elem = document.createElement('li');
+			elem.className = `order-info__item main-text ${className}`;
+			elem.textContent = ` ${text}`;
+			orderList.append(elem);
+			if (document.querySelector('.order-clear')) {
+				document.querySelector('.order-clear').remove();
+			}
+		} else if (document.querySelector(`.${className}`) !== null) {
+			orderSum -= price;
+			document.querySelector(`.${className}`).remove();
+			createClearEl();
+		}
+		generateOrderPrice();
+	}
+
+	// Shild 
+	const generateSchildItem = () => {
+		schildSum = parseInt(schildSpinner.value, 10) * 50;
+		if (parseInt(schildSpinner.value, 10) !== 0) {
+			if (document.querySelector('.order-schild') === null) {
+				const elem = document.createElement('li');
+				elem.className = 'order-info__item main-text order-schild';
+				elem.innerHTML = ` Фирменные шильды ${schildSpinner.value} шт.`;
+				orderList.append(elem);
+			} else {
+				document.querySelector('.order-schild').textContent = ` Фирменные шильды ${schildSpinner.value} шт.`;
+			}
+			if (document.querySelector('.order-clear')) {
+				document.querySelector('.order-clear').remove();
+			}
+		} else if (document.querySelector('.order-schild') !== null) {
+			document.querySelector('.order-schild').remove();
+			createClearEl();
+		}
+
+		generateOrderPrice();
+	}
+	btnPlus.addEventListener('click', () => {
+		spinnerIncr();
+		generateSchildItem();
+	})
+	btnMinus.addEventListener('click', () => {
+		spinnerDecr();
+		generateSchildItem();
+	})
+
+	// Heel
+	generateListItem(heelInp, 'order-heel', 'Подпятник', 500);
+	heelInp.addEventListener('change', () => {
+		generateListItem(heelInp, 'order-heel', 'Подпятник', 500);
+	})
+
+	// Front Row
+	generateListItem(frontRowInp, 'order-front-row', 'Комплект ковриков для переднего ряда', 1700);
+	frontRowInp.addEventListener('change', () => {
+		generateListItem(frontRowInp, 'order-front-row', 'Комплект ковриков для переднего ряда', 1700);
+	})
+
+	// Back Row
+	generateListItem(backRowInp, 'order-back-row', 'Комплект ковриков для заднего ряда', 1600);
+	backRowInp.addEventListener('change', () => {
+		generateListItem(backRowInp, 'order-back-row', 'Комплект ковриков для заднего ряда', 1600);
+	})
+
+	// Trunk
+	trunkInp.addEventListener('change', () => {
+		generateListItem(trunkInp, 'order-trunk', 'Коврик для багажника', 1000);
+	})
 });
 

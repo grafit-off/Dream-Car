@@ -202,7 +202,7 @@
 									</li>
 								</ul>
 							</div>
-							<form action="https://jsonplaceholder.typicode.com/posts" class="accordion__constructor-form" id="form" method="POST" name="constructor-form">
+							<div class="accordion__constructor-form">
 								<fieldset class="accordion__builder builder main-text">
 									<div class="builder__design design">
 										<div class="design__shape">
@@ -330,17 +330,18 @@
 									</div>
 									<div class="builder__schild schild">
 										<span class="schild__label">
-											Фирменные шильды: <input class="schild__input" type="number" name="Фирменные шильды (шт.)" min="0" max="100" value="1"> шт.
+											Фирменные шильды: <input class="schild__input main-text" type="number" name="Фирменные шильды (шт.)" min="0" max="100" value="0"> шт.
 										</span>
 										<div class="schild__buttons">
-											<button class="schild__minus btn-reset" type="button" aria-label="Удалить">- </button>
-											<button class="schild__minus  btn-reset" type="button" aria-label="Добавить"> +</button>
+											<button class="schild__minus btn-reset" type="button" aria-label="Удалить"></button>
+											<span>/</span>
+											<button class="schild__plus  btn-reset" type="button" aria-label="Добавить"></button>
 										</div>
 									</div>
 									<div class="builder__front-row">
 										<label class="builder__check check">
 											<span class="check__text">Передний ряд </span>
-											<input class="check__input visually-hidden" type="checkbox" name="Параметры[]" value="Передний ряд">
+											<input class="check__input visually-hidden" type="checkbox" checked name="Параметры[]" value="Передний ряд">
 											<span class="check__box"></span>
 										</label>
 									</div>
@@ -359,10 +360,24 @@
 										</label>
 									</div>
 								</fieldset>
-							</form>
+							</div>
 						</div>
 						<div class="accordion__order-info order-info">
-							<button class="order-info__btn" form="form">Отправить заказ</button>
+							<div class="order-info__preview">
+								<div class="order-info__label main-text">
+									Ваш заказ:
+								</div>
+								<ul class="order-info__list list-reset">
+
+								</ul>
+							</div>
+							<div class="order-info__outcome main-text">
+								<div class="order-info__price-block price-block">
+									<div class="price-block__label ">Сумма заказа:&nbsp;</div>
+									<span class="price-block__price"></span>&nbsp;р.
+								</div>
+								<button class="order-info__btn modal-btn main-text btn-reset" data-path='modal'>Отправить заказ</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -376,6 +391,25 @@
 		FOOTER
 	</div>
 </footer>
+	<div class='modal' id='modal' aria-labelledby="modal-title" aria-describedby='modal-desc' aria-modal='true' role='dialog'>
+	<div class='modal__wrapper'>
+		<div class='modal__content'>
+			<button aria-label='Close Modal' class='modal__close close-modal btn-reset'>
+				×
+			</button>
+			<h3 class='modal__title' id='modal-title'>
+				Title
+			</h3>
+			<p class='modal__desc' id='modal-desc'>
+			</p>
+			<div class='modal__body content'>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- action="https://jsonplaceholder.typicode.com/posts"  id="form" method="POST" name="constructor-form" -->
 
 	<script src="resources/libs/swiper-bundle.min.js"></script>
 	<script src="js/main.js"></script>
