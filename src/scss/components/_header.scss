@@ -30,6 +30,10 @@
 
 	&__info {
 		text-align: right;
+		@media (max-width: $md3+px) {
+			display: flex;
+			align-items: center;
+		}
 	}
 
 	&__link {
