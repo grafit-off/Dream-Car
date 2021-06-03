@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	themeSwitcher.addEventListener('click', themeToggle);
+	// -- //
 
 	// Hero Swiper
 	const swiper = new Swiper(".swiper", {
@@ -70,11 +71,40 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		}
 	});
+	// -- //
 
+	// Smooth Scroll
+	if (isiPhone || isiPad || isiPod) {
+		let linkNav = document.querySelectorAll('[href^="#"]'), //выбираем все ссылки к якорю на странице
+			V = 0.2;  // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
+		for (let i = 0; i < linkNav.length; i++) {
+			linkNav[i].addEventListener('click', function (e) { //по клику на ссылку
+				e.preventDefault(); //отменяем стандартное поведение
+				let w = window.pageYOffset,  // производим прокрутка прокрутка
+					hash = this.href.replace(/[^#]*(.*)/, '$1');  // к id элемента, к которому нужно перейти
+				t = document.querySelector(hash).getBoundingClientRect().top,  // отступ от окна браузера до id
+					start = null;
+				requestAnimationFrame(step);  // подробнее про функцию анимации [developer.mozilla.org]
+				function step(time) {
+					if (start === null) start = time;
+					let progress = time - start,
+						r = (t < 0 ? Math.max(w - progress / V, w + t) : Math.min(w + progress / V, w + t));
+					window.scrollTo(0, r);
+					if (r != w + t) {
+						requestAnimationFrame(step)
+					} else {
+						location.hash = hash  // URL с хэшем
+					}
+				}
+			}, false);
+		}
+	}
+
+	// -- //
 
 	// Accodions
-	const accordionTrigger = document.querySelectorAll(".accordion__trigger"),
-		accordionBody = document.querySelectorAll(".accordion__body");
+	const accordionTrigger = document.querySelectorAll(".accordion__trigger");
+	const accordionBody = document.querySelectorAll(".accordion__body");
 
 	const accordionsToggle = (triggers, bodyElements) => {
 		triggers.forEach((el) => {
@@ -93,28 +123,79 @@ document.addEventListener("DOMContentLoaded", () => {
 					elBody.style.height = "0";
 					el.setAttribute("aria-expanded", "false");
 					elBody.setAttribute("aria-hidden", "true");
+					if (elBody.querySelector('.accordion__constructor-form')) {
+						openBuilderBtn.forEach((el) => {
+							el.setAttribute("aria-expanded", "false");
+						})
+					}
 				}
-				bodyElements.forEach((el) => {
-					el.addEventListener("transitionend", () => {
-						if (el.style.height !== "0px") {
-							el.style.height = "auto";
-
-						}
-					});
-				});
 			});
 		});
-
+		bodyElements.forEach((el) => {
+			el.addEventListener("transitionend", () => {
+				if (el.style.height !== "0px") {
+					el.style.height = "auto";
+				}
+			});
+		});
 	};
 	accordionsToggle(accordionTrigger, accordionBody);
 	// -- //
+
+	// Open and scroll to builder 
+	const openBuilderBtn = [document.querySelector('.hero-buttons__order'), document.querySelector('.hero__btn')];
+	const builder = document.querySelector('.accordion__constructor-form');
+
+	const openBuilderAccordion = () => {
+		const accordion = builder.closest('.accordion');
+		const accTrigger = accordion.querySelector('.accordion__trigger');
+		const accBody = accordion.querySelector('.accordion__body');
+		accTrigger.disabled = true;
+		setTimeout(() => {
+			accTrigger.disabled = false;
+		}, 500);
+		accTrigger.classList.add('accordion__trigger--active');
+		accBody.style.height = `${accBody.scrollHeight}px`;
+		if (accBody.style.height === "0px" || window.getComputedStyle(accBody).height === "0px") {
+			accTrigger.setAttribute("aria-expanded", "true");
+			accBody.setAttribute("aria-hidden", "false");
+		}
+	}
+	const scrollToBuilder = () => {
+		V = 0.2;
+		let w = window.pageYOffset;
+		t = builder.getBoundingClientRect().top,
+			start = null;
+		requestAnimationFrame(step);
+		function step(time) {
+			if (start === null) start = time;
+			let progress = time - start,
+				r = (t < 0 ? Math.max(w - progress / V, w + t) : Math.min(w + progress / V, w + t));
+			window.scrollTo(0, r);
+			if (r != w + t) {
+				requestAnimationFrame(step)
+			}
+		}
+	}
+	openBuilderBtn.forEach((el) => {
+		el.addEventListener('click', () => {
+			el.setAttribute("aria-expanded", "true");
+			openBuilderAccordion();
+			setTimeout(() => {
+				scrollToBuilder();
+			}, 100);
+		})
+	});
+	// -- //
+
+
 
 	// Image Preview
 	/* 
 		Идея
 		По нажатию на картинку в списке, передавать src в выводимое изображение,
 		а src выводимого изображения передавть картинке по которой произошел клик.
-
+	
 		План
 		1. Создать переменные выводимого изображения и блока списка картинок/кнопок.
 		2. Добавить слушатель на блок и способом делегирования отлавливать картинку
@@ -145,6 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			image.setAttribute('alt', `${mainImgAlt}`);
 		}
 	})
+	// -- //
 
 	// Number Spinner
 	const schildSpinner = document.querySelector('.schild__input');
@@ -243,7 +325,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		generateSchildItem();
 	})
 
-
 	// Heel
 	generateListItem(heelInp, 'order-heel', 'Подпятник', 500);
 	heelInp.addEventListener('change', () => {
@@ -266,5 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	trunkInp.addEventListener('change', () => {
 		generateListItem(trunkInp, 'order-trunk', 'Коврик для багажника', 1000);
 	})
+	// -- //
+
 });
 

@@ -160,4 +160,28 @@
 		font-size: 14px;
 	}
 }
+.accordion-close {
+	position: relative;
+	padding: 30px 10px;
+
+	font-weight: 700;
+	text-transform: uppercase;
+	&__icon {
+		position: absolute;
+		top: 0;
+		left: 50%;
+
+		width: 25px;
+		height: 25px;
+
+		object-fit: contain;
+		fill: var(--color-font);
+
+		transform: translate(-50%, 0) rotate(90deg);
+		@media (max-width: $md4+px) {
+			width: 15px;
+			height: 15px;
+		}
+	}
+}
 // -- //

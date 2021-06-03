@@ -1,5 +1,8 @@
 .constructor {
 	padding-top: 35px;
+	&__container {
+		border-bottom: 1px solid var(--color-pagination);
+	}
 }
 
 /* Стили аккордеона */
@@ -82,8 +85,11 @@
 			flex: 0 0 100%;
 		}
 	}
-
 	&__order-info {
+		flex: 0 0 100%;
+		margin-bottom: 25px;
+	}
+	&__close {
 		flex: 0 0 100%;
 	}
 }
