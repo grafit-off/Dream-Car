@@ -110,9 +110,10 @@
 	font-weight: 700;
 	line-height: 72px / 60px * 100%;
 	text-transform: uppercase;
+	text-align: left;
 
 	@media (max-width: $md3+px) {
-		font-size: 28px;
+		font-size: 24px;
 	}
 }
 .main-btn {
@@ -166,6 +167,9 @@
 
 	font-weight: 700;
 	text-transform: uppercase;
+	@media (max-width: $md4+px) {
+		padding: 20px 10px;
+	}
 	&__icon {
 		position: absolute;
 		top: 0;
