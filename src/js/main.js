@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 	const scrollToBuilder = () => {
-		V = 0.2;
+		V = 0.35;
 		let w = window.pageYOffset;
 		t = builder.getBoundingClientRect().top,
 			start = null;
