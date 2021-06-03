@@ -243,6 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		generateSchildItem();
 	})
 
+
 	// Heel
 	generateListItem(heelInp, 'order-heel', 'Подпятник', 500);
 	heelInp.addEventListener('change', () => {

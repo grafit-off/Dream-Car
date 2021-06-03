@@ -1,13 +1,4 @@
 /* Modal */
-/*  Объект для модального окна, чтобы страница не прокручивалась вверх  */
-.fixed {
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	opacity: 0;
-}
-/* ----- */
 .modal {
 	position: fixed;
 	top: 0;
@@ -17,15 +8,24 @@
 	width: 100%;
 	height: 100%;
 
-	overflow-y: auto;
 	overflow-x: hidden;
+	overflow-y: auto;
 
 	opacity: 0;
 	visibility: hidden;
-	backface-visibility: hidden;
-	background-color: rgba(0, 0, 0, 0.726);
 
 	transition: opacity 0.7s ease, visibility 0.7s ease;
+	&::before {
+		content: "";
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 100%;
+
+		background-color: rgba(0, 0, 0, 0.7);
+	}
 
 	&.open {
 		opacity: 1;
@@ -41,18 +41,16 @@
 		align-items: center;
 		justify-content: center;
 
-		min-height: 90vh;
-		padding: 30px 10px;
-	}
+		min-height: 80vh;
 
+		padding: 30px;
+	}
 	&__content {
 		position: relative;
 
 		display: flex;
 		flex-direction: column;
 
-		min-width: 600px;
-		min-height: 400px;
 		padding: 30px;
 
 		border-radius: 30px;
@@ -70,22 +68,30 @@
 		right: 15px;
 
 		display: block;
-		align-self: flex-end;
 
 		background: transparent;
 		color: black;
 
 		font-size: 32px;
-		transition: all 0.2s ease-in;
-		&:hover {
-			transform: scale(1.2);
+
+		cursor: pointer;
+		transition: transform 0.2s ease-in;
+		&:focus:not(:focus-visible) {
+			outline: none;
+		}
+		@media (max-width: $md3+px) {
+			outline: none;
+		}
+		@media (min-width: $md3+px) {
+			&:hover {
+				transform: scale(1.2);
+			}
+			&:focus {
+				transform: scale(1.2);
+			}
 		}
 	}
 	&__title {
-	}
-
-	&__close-image {
-		width: 15px;
 	}
 
 	&__desc {
