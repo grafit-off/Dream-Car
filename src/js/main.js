@@ -188,7 +188,36 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 	// -- //
 
+	// Close Accordion
+	const accCloseBtns = document.querySelectorAll('.accordion-close');
+	accCloseBtns.forEach((el) => {
+		el.addEventListener('click', () => {
+			const accordion = el.closest('.accordion');
+			const accTrigger = accordion.querySelector('.accordion__trigger');
 
+			accTrigger.disabled = true;
+			setTimeout(() => {
+				accTrigger.disabled = false;
+			}, 500);
+			const elBody = accTrigger.closest(".accordion__item").querySelector(".accordion__body");
+			accTrigger.classList.toggle('accordion__trigger--active');
+			elBody.style.height = `${elBody.scrollHeight}px`;
+			if (elBody.style.height === "0px" || window.getComputedStyle(elBody).height === "0px") {
+				accTrigger.setAttribute("aria-expanded", "true");
+				elBody.setAttribute("aria-hidden", "false");
+			} else {
+				elBody.style.height = "0";
+				accTrigger.setAttribute("aria-expanded", "false");
+				elBody.setAttribute("aria-hidden", "true");
+				if (elBody.querySelector('.accordion__constructor-form')) {
+					openBuilderBtn.forEach((accTrigger) => {
+						accTrigger.setAttribute("aria-expanded", "false");
+					})
+				}
+			}
+		})
+	});
+	// -- //
 
 	// Image Preview
 	/* 
