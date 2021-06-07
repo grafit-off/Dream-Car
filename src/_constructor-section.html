@@ -1,7 +1,7 @@
 <section class="constructor">
 	<div class="constructor__container container">
 		<div class="constructor__accordion accordion">
-			<div class="accordion__item">
+			<div class="accordion__item" data-accpath="1">
 				<h2 class="accordion__heading main-heading text-reset">
 					<button class="accordion__trigger main-heading text-reset btn-reset " aria-expanded="false">
 						комплектация и цвет
@@ -10,7 +10,7 @@
 						</svg>
 					</button>
 				</h2>
-				<div class="accordion__body" aria-hidden="true">
+				<div class="accordion__body accordion__body--hidden" aria-hidden="true">
 					<div class="accordion__content">
 						<div class="accordion__info">
 							<p class="accordion__text main-text text-reset">
@@ -185,13 +185,14 @@
 										</label>
 									</div>
 									<div class="builder__schild schild">
-										<span class="schild__label">
-											Фирменные шильды: <input class="schild__input main-text" type="number" name="Фирменные шильды (шт.)" min="0" max="100" value="0"> шт.
-										</span>
+										<label class="schild__label">
+											Фирменные шильды:
+											<input class="schild__input main-text" type="number" name="Фирменные шильды (шт.)" min="0" max="100" value="0"> шт.
+										</label>
 										<div class="schild__buttons">
-											<button class="schild__minus btn-reset" type="button" aria-label="Удалить"></button>
+											<button class="schild__minus btn-reset" type="button" aria-label="Удалить шильд"></button>
 											<span>/</span>
-											<button class="schild__plus  btn-reset" type="button" aria-label="Добавить"></button>
+											<button class="schild__plus  btn-reset" type="button" aria-label="Добавить шильд"></button>
 										</div>
 									</div>
 									<div class="builder__front-row">
@@ -232,7 +233,7 @@
 									<div class="price-block__label ">Сумма заказа:&nbsp;</div>
 									<span class="price-block__price"></span>&nbsp;р.
 								</div>
-								<button class="order-info__btn modal-btn main-text btn-reset" data-path='modal'>Отправить заказ</button>
+								<button class="order-info__btn accent-btn modal-btn main-text btn-reset" data-path='modal'>Отправить заказ</button>
 							</div>
 						</div>
 						<button class="accordion__close accordion-close main-text btn-reset">

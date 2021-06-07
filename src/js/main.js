@@ -102,65 +102,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// -- //
 
-	// Accodions
-	const accordionTrigger = document.querySelectorAll(".accordion__trigger");
-	const accordionBody = document.querySelectorAll(".accordion__body");
+	// Accordion
+	const accordionTriggers = document.querySelectorAll(".accordion__trigger");
 
-	const accordionsToggle = (triggers, bodyElements) => {
-		triggers.forEach((el) => {
-			el.addEventListener("click", () => {
-				el.disabled = true;
-				setTimeout(() => {
-					el.disabled = false;
-				}, 500);
-				const elBody = el.closest(".accordion__item").querySelector(".accordion__body");
-				el.classList.toggle('accordion__trigger--active');
-				elBody.style.height = `${elBody.scrollHeight}px`;
-				if (elBody.style.height === "0px" || window.getComputedStyle(elBody).height === "0px") {
-					el.setAttribute("aria-expanded", "true");
-					elBody.setAttribute("aria-hidden", "false");
-				} else {
-					elBody.style.height = "0";
-					el.setAttribute("aria-expanded", "false");
-					elBody.setAttribute("aria-hidden", "true");
-					if (elBody.querySelector('.accordion__constructor-form')) {
-						openBuilderBtn.forEach((el) => {
-							el.setAttribute("aria-expanded", "false");
-						})
-					}
-				}
-			});
-		});
-		bodyElements.forEach((el) => {
-			el.addEventListener("transitionend", () => {
-				if (el.style.height !== "0px") {
-					el.style.height = "auto";
-				}
-			});
-		});
-	};
-	accordionsToggle(accordionTrigger, accordionBody);
+	const accordionTriggerDisable = (trigger) => {
+		trigger.disabled = true;
+		setTimeout(() => {
+			trigger.disabled = false;
+		}, 500);
+	}
+
+	const accordionOpen = (trigger, body) => {
+		body.style.height = body.scrollHeight + 'px';
+		if (body.style.height === "0px" || window.getComputedStyle(body).height === "0px") {
+			trigger.classList.add("accordion__trigger--active");
+			trigger.setAttribute("aria-expanded", "true");
+			body.setAttribute("aria-hidden", "false");
+			body.classList.remove('accordion__body--hidden');
+		}
+	}
+
+	const accordionClose = (trigger, body) => {
+		if (body.style.height !== "0px" && window.getComputedStyle(body).height !== "0px") {
+			trigger.classList.remove("accordion__trigger--active");
+			trigger.setAttribute("aria-expanded", "false");
+			body.setAttribute("aria-hidden", "true");
+			body.style.height = body.scrollHeight + 'px';
+			setTimeout(() => {
+				body.style.height = "0";
+			}, 0);
+			setTimeout(() => {
+				body.classList.add('accordion__body--hidden');
+			}, 500);
+		}
+	}
+
+	const setHeightOnTransitionEnd = (body) => {
+		body.addEventListener("transitionend", () => {
+			if (body.style.height !== "0px") {
+				body.style.height = "auto";
+			}
+		})
+	}
+
+	const accordionToggle = (target) => {
+		const trigger = target;
+		const body = target.closest('.accordion__item').querySelector('.accordion__body');
+		setHeightOnTransitionEnd(body);
+		accordionClose(trigger, body);
+		accordionOpen(trigger, body);
+		accordionTriggerDisable(trigger);
+	}
+
+	accordionTriggers.forEach(trigger => {
+		trigger.addEventListener('click', (e) => {
+			let self = e.currentTarget;
+			accordionToggle(self);
+		})
+	})
 	// -- //
 
 	// Open and scroll to builder 
 	const openBuilderBtn = [document.querySelector('.hero-buttons__order'), document.querySelector('.hero__btn')];
 	const builder = document.querySelector('.accordion__constructor-form');
 
-	const openBuilderAccordion = () => {
-		const accordion = builder.closest('.accordion');
-		const accTrigger = accordion.querySelector('.accordion__trigger');
-		const accBody = accordion.querySelector('.accordion__body');
-		accTrigger.disabled = true;
-		setTimeout(() => {
-			accTrigger.disabled = false;
-		}, 500);
-		accTrigger.classList.add('accordion__trigger--active');
-		accBody.style.height = `${accBody.scrollHeight}px`;
-		if (accBody.style.height === "0px" || window.getComputedStyle(accBody).height === "0px") {
-			accTrigger.setAttribute("aria-expanded", "true");
-			accBody.setAttribute("aria-hidden", "false");
-		}
-	}
 	const scrollToBuilder = () => {
 		V = 0.35;
 		let w = window.pageYOffset;
@@ -177,13 +182,21 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		}
 	}
+
 	openBuilderBtn.forEach((el) => {
 		el.addEventListener('click', () => {
-			el.setAttribute("aria-expanded", "true");
-			openBuilderAccordion();
+			let path = el.dataset.accpath;
+			let accordion = document.querySelector('.accordion').querySelector(`[data-accpath="${path}"]`);
+			let trigger = accordion.querySelector('.accordion__trigger');
+			let body = accordion.querySelector('.accordion__body');
+			accordionTriggerDisable(trigger);
+			accordionTriggerDisable(el);
+			accordionOpen(trigger, body);
 			setTimeout(() => {
 				scrollToBuilder();
-			}, 100);
+				document.querySelector('[name="Форма ячейки"]').focus();
+			}, 500);
+
 		})
 	});
 	// -- //
@@ -192,29 +205,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	const accCloseBtns = document.querySelectorAll('.accordion-close');
 	accCloseBtns.forEach((el) => {
 		el.addEventListener('click', () => {
-			const accordion = el.closest('.accordion');
-			const accTrigger = accordion.querySelector('.accordion__trigger');
+			const accordion = el.closest('.accordion__item');
+			const trigger = accordion.querySelector('.accordion__trigger');
+			const body = accordion.querySelector('.accordion__body');
+			accordionTriggerDisable(el);
+			accordionTriggerDisable(trigger);
+			accordionClose(trigger, body);
+			trigger.focus();
+			console.log(trigger);
 
-			accTrigger.disabled = true;
-			setTimeout(() => {
-				accTrigger.disabled = false;
-			}, 500);
-			const elBody = accTrigger.closest(".accordion__item").querySelector(".accordion__body");
-			accTrigger.classList.toggle('accordion__trigger--active');
-			elBody.style.height = `${elBody.scrollHeight}px`;
-			if (elBody.style.height === "0px" || window.getComputedStyle(elBody).height === "0px") {
-				accTrigger.setAttribute("aria-expanded", "true");
-				elBody.setAttribute("aria-hidden", "false");
-			} else {
-				elBody.style.height = "0";
-				accTrigger.setAttribute("aria-expanded", "false");
-				elBody.setAttribute("aria-hidden", "true");
-				if (elBody.querySelector('.accordion__constructor-form')) {
-					openBuilderBtn.forEach((accTrigger) => {
-						accTrigger.setAttribute("aria-expanded", "false");
-					})
-				}
-			}
 		})
 	});
 	// -- //
@@ -239,21 +238,23 @@ document.addEventListener("DOMContentLoaded", () => {
 	const mainImg = document.querySelector('.image-preview__current');
 	const imgList = document.querySelector('.image-preview__list');
 
+	const imageToggle = (image) => {
+		let mainImgSrc = mainImg.getAttribute('src');
+		let mainImgAlt = mainImg.getAttribute('alt');
+
+		let imageSrc = image.getAttribute('src');
+		let imageAlt = image.getAttribute('alt');
+
+		mainImg.setAttribute('src', `${imageSrc}`);
+		mainImg.setAttribute('alt', `${imageAlt}`);
+
+		image.setAttribute('src', `${mainImgSrc}`);
+		image.setAttribute('alt', `${mainImgAlt}`);
+	}
+
 	imgList.addEventListener('click', (e) => {
-		let image = e.target;
-		if (image.classList.contains('preview-item__image')) {
-			let mainImgSrc = mainImg.getAttribute('src');
-			let mainImgAlt = mainImg.getAttribute('alt');
-
-			let imageSrc = image.getAttribute('src');
-			let imageAlt = image.getAttribute('alt');
-
-			mainImg.setAttribute('src', `${imageSrc}`);
-			mainImg.setAttribute('alt', `${imageAlt}`);
-
-			image.setAttribute('src', `${mainImgSrc}`);
-			image.setAttribute('alt', `${mainImgAlt}`);
-		}
+		let image = e.target.querySelector('.preview-item__image');
+		imageToggle(image);
 	})
 	// -- //
 
@@ -353,6 +354,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		spinnerDecr();
 		generateSchildItem();
 	})
+	schildSpinner.addEventListener('keydown', (e) => {
+		if (e.key == 'Enter') {
+			generateSchildItem();
+		}
+	})
 
 	// Heel
 	generateListItem(heelInp, 'order-heel', 'Подпятник', 500);
@@ -377,6 +383,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		generateListItem(trunkInp, 'order-trunk', 'Коврик для багажника', 1000);
 	})
 	// -- //
+
+	// Form Send
 
 });
 
