@@ -414,15 +414,15 @@
 					<legend class="form__legend visually-hidden">Контактная информация</legend>
 					<label class="form__label">
 						<span class="form__label-text visually-hidden">Ваше имя</span>
-						<input type="text" class="form__input input-reset main-text" name="Имя" placeholder="Ваше имя" required>
+						<input type="text" class="form__input input-reset main-text" name="Имя" data-validate-field="name" placeholder="Ваше имя" required>
 					</label>
 					<label class="form__label">
 						<span class="form__label-text visually-hidden">Модель автомобиля</span>
-						<input type="text" class="form__input input-reset main-text" name="Модель автомобиля" placeholder="Модель автомобиля" required>
+						<input type="text" class="form__input input-reset main-text" name="Модель автомобиля" data-validate-field="auto" placeholder="Модель автомобиля" required>
 					</label>
 					<label class="form__label">
 						<span class="form__label-text visually-hidden">Номер телефона</span>
-						<input type="tel" class="form__input input-reset main-text" name="Номер телефона" placeholder="Номер телефона" required>
+						<input type="tel" class="form__input input-reset main-text" name="Номер телефона" data-validate-field="tel" placeholder="Номер телефона" required>
 					</label>
 				</fieldset>
 				<button class="form__submit accent-btn main-text btn-reset">Отправить</button>
@@ -436,6 +436,8 @@
 <!-- action="https://jsonplaceholder.typicode.com/posts"  id="form" method="POST" name="constructor-form" -->
 
 	<script src="resources/libs/swiper-bundle.min.js"></script>
+	<script src="resources/libs/just-validate.min.js"></script>
+	<script src="resources/libs/inputmask.js"></script>
 	<script src="js/main.js"></script>
 </body>
 
