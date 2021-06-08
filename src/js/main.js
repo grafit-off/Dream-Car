@@ -391,6 +391,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// -- //
 
 	// Validate
+	let isValid = false;
 	const validate = (selector, rules) => {
 		new window.JustValidate(selector, {
 			rules: rules,
@@ -406,63 +407,78 @@ document.addEventListener("DOMContentLoaded", () => {
 				}
 			},
 			submitHandler: (form, value, ajax) => {
-				console.log(form);
+				isValid = true;
 			}
 		})
 	};
 
-	/* validate('.form', {
+	validate('.form', {
 		name: { required: true }, auto: { required: true }, tel: { required: true }
-	}) */
+	})
+
+
 	// -- //
 
 	// Form Send
+
+
 	const form = document.querySelector('.form');
 
 	form.addEventListener('submit', async (e) => {
 		e.preventDefault();
-		const self = e.currentTarget;
-		const formData = new FormData(self);
+		const data = {
 
+		}
 
 		const name = document.querySelector('input[name="Имя"]').value;
 		const auto = document.querySelector('input[name="Модель автомобиля"]').value;
 		const tel = inputTel.value;
-		const heel = heelInp.value;
-		const frontRow = frontRowInp.value;
-		const backRow = backRowInp.value;
-		const trunk = trunkInp.value;
+		const heel = heelInp.checked;
+		const frontRow = frontRowInp.checked;
+		const backRow = backRowInp.checked;
+		const trunk = trunkInp.checked;
 		const schild = schildSpinner.value;
+		const edging = document.querySelectorAll('input[name="Цвет окантовки"]');
+		const canvas = document.querySelectorAll('input[name="Цвет полотна"]');
+		const shape = document.querySelectorAll('input[name="Форма ячейки"]');
 
-		formData.append('Имя', JSON.stringify(name));
-		formData.append('Марка авто', auto);
-		formData.append('Номер телефона', tel);
-		formData.append('Металлический подпятник', heel);
-		formData.append('Передний ряд', frontRow);
-		formData.append('Задний ряд', backRow);
-		formData.append('Багажник ', trunk);
-		formData.append('Фирменные шильды .шт', schild);
+		data.name = name;
+		data.tel = tel;
+		data.auto = auto;
+		data.heel = heel;
+		data.frontRow = frontRow;
+		data.backRow = backRow;
+		data.trunk = trunk;
+		data.schild = schild;
 
-		let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-			method: 'POST',
-			body: formData
-		})
-
-		let result = await response.json();
-		console.log(result);
-	})
-});
-
-/* const xhr = new XMLHttpRequest();
-		xhr.addEventListener('readystatechange', () => {
-			if (xhr.readyState === 4) {
-				if (xhr.status === 200) {
-					console.log('Отправлено');
-				}
+		shape.forEach((el) => {
+			if (el.checked) {
+				data.shape = el.value;
 			}
 		});
-		xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
-		xhr.send(formData);
-		xhr.onload = function () {
-			alert(`Загружено: ${xhr.status} ${xhr.response}`);
-		}; */
+		canvas.forEach((el) => {
+			if (el.checked) {
+				data.canvas = el.value;
+			}
+		});
+		edging.forEach((el) => {
+			if (el.checked) {
+				data.edging = el.value;
+			}
+		});
+
+		if (isValid) {
+			let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+				method: 'POST',
+				body: JSON.stringify(data),
+				headers: {
+					'Content-type': 'application/json; charset=utf-8'
+				}
+			})
+
+			let result = await response.json();
+			console.log(result);
+			console.log(`Статус: ${await response.status}`);
+		}
+	})
+});
