@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const builder = document.querySelector('.accordion__constructor-form');
 
 	const scrollToBuilder = () => {
-		V = 0.35;
+		V = 0.7;
 		let w = window.pageYOffset;
 		t = builder.getBoundingClientRect().top,
 			start = null;
@@ -192,11 +192,11 @@ document.addEventListener("DOMContentLoaded", () => {
 			accordionTriggerDisable(trigger);
 			accordionTriggerDisable(el);
 			accordionOpen(trigger, body);
+			setHeightOnTransitionEnd(body);
 			setTimeout(() => {
 				scrollToBuilder();
 				document.querySelector('[name="Форма ячейки"]').focus();
 			}, 500);
-
 		})
 	});
 	// -- //
@@ -343,9 +343,21 @@ document.addEventListener("DOMContentLoaded", () => {
 			document.querySelector('.order-schild').remove();
 			createClearEl();
 		}
-
 		generateOrderPrice();
 	}
+	schildSpinner.addEventListener('blur', () => {
+		if (schildSpinner.value < 101 && schildSpinner.value >= 0) {
+			generateSchildItem();
+		} else {
+			schildSpinner.value = 0;
+			generateSchildItem();
+		}
+	})
+	schildSpinner.addEventListener('keydown', () => {
+		if (isNaN(parseInt(schildSpinner.value, 10))) {
+			schildSpinner.value = 0;
+		}
+	})
 	btnPlus.addEventListener('click', () => {
 		spinnerIncr();
 		generateSchildItem();
@@ -388,6 +400,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	const inputTel = document.querySelector('input[type="tel"]');
 	const inMask = new Inputmask('+7 (999) 999-99-99');
 	inMask.mask(inputTel);
+
+	const inMaskSchild = new Inputmask('999', { placeholder: '' });
+	inMaskSchild.mask(schildSpinner);
+
 	// -- //
 
 	// Validate
@@ -419,55 +435,93 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// -- //
 
+
+	// Snackbar
+	const snackbarBtn = document.querySelector('.snackbar-btn');
+	const snackbar = document.querySelector(".snackbar");
+	function snackbarShow(text = snackbar.textContent, type, time = 3100, delay = 0) {
+		snackbar.textContent = text;
+		if (snackbarBtn) {
+			snackbarBtn.disabled = true;
+		}
+
+		setTimeout(() => {
+			snackbar.removeAttribute('hidden')
+			if (type == 0) {
+				snackbar.classList.add('show-notification');
+				setTimeout(() => {
+					snackbar.className = snackbar.className.replace("show-notification", "");
+					snackbar.setAttribute('hidden', '')
+				}, time);
+			} else if (type == 1) {
+				snackbar.classList.add('show-attention');
+				setTimeout(() => {
+					snackbar.className = snackbar.className.replace("show-attention", "");
+					snackbar.setAttribute('hidden', '')
+				}, time);
+			}
+			if (snackbarBtn) {
+				setTimeout(() => {
+					snackbarBtn.disabled = false;
+				}, time)
+			}
+		}, delay)
+	}
+	// -- //
+
 	// Form Send
-
-
 	const form = document.querySelector('.form');
+	const formBtn = document.querySelector('.form__submit');
+
+	const data = {
+	}
 
 	form.addEventListener('submit', async (e) => {
 		e.preventDefault();
-		const data = {
+		formBtn.disabled = true;
 
-		}
-
-		const name = document.querySelector('input[name="Имя"]').value;
-		const auto = document.querySelector('input[name="Модель автомобиля"]').value;
-		const tel = inputTel.value;
-		const heel = heelInp.checked;
-		const frontRow = frontRowInp.checked;
-		const backRow = backRowInp.checked;
-		const trunk = trunkInp.checked;
-		const schild = schildSpinner.value;
-		const edging = document.querySelectorAll('input[name="Цвет окантовки"]');
-		const canvas = document.querySelectorAll('input[name="Цвет полотна"]');
-		const shape = document.querySelectorAll('input[name="Форма ячейки"]');
-
-		data.name = name;
-		data.tel = tel;
-		data.auto = auto;
-		data.heel = heel;
-		data.frontRow = frontRow;
-		data.backRow = backRow;
-		data.trunk = trunk;
-		data.schild = schild;
-
-		shape.forEach((el) => {
-			if (el.checked) {
-				data.shape = el.value;
-			}
-		});
-		canvas.forEach((el) => {
-			if (el.checked) {
-				data.canvas = el.value;
-			}
-		});
-		edging.forEach((el) => {
-			if (el.checked) {
-				data.edging = el.value;
-			}
-		});
+		setTimeout(() => {
+			formBtn.disabled = false;
+		}, 1000);
 
 		if (isValid) {
+			const name = document.querySelector('input[name="Имя"]').value;
+			const auto = document.querySelector('input[name="Модель автомобиля"]').value;
+			const tel = inputTel.value;
+			const heel = heelInp.checked;
+			const frontRow = frontRowInp.checked;
+			const backRow = backRowInp.checked;
+			const trunk = trunkInp.checked;
+			const schild = schildSpinner.value;
+			const edging = document.querySelectorAll('input[name="Цвет окантовки"]');
+			const canvas = document.querySelectorAll('input[name="Цвет полотна"]');
+			const shape = document.querySelectorAll('input[name="Форма ячейки"]');
+
+			data.name = name;
+			data.tel = tel;
+			data.auto = auto;
+			data.heel = heel;
+			data.frontRow = frontRow;
+			data.backRow = backRow;
+			data.trunk = trunk;
+			data.schild = schild;
+
+			shape.forEach((el) => {
+				if (el.checked) {
+					data.shape = el.value;
+				}
+			});
+			canvas.forEach((el) => {
+				if (el.checked) {
+					data.canvas = el.value;
+				}
+			});
+			edging.forEach((el) => {
+				if (el.checked) {
+					data.edging = el.value;
+				}
+			});
+
 			let response = await fetch("https://jsonplaceholder.typicode.com/posts", {
 				method: 'POST',
 				body: JSON.stringify(data),
@@ -475,10 +529,20 @@ document.addEventListener("DOMContentLoaded", () => {
 					'Content-type': 'application/json; charset=utf-8'
 				}
 			})
+			console.log('Sending data...');
 
-			let result = await response.json();
-			console.log(result);
-			console.log(`Статус: ${await response.status}`);
+
+			if (await response.ok) {
+				console.log(`Response status: ${await response.status}`);
+				let modal = form.closest('.modal');
+				let result = await response.json();
+				console.log('Request data...');
+				console.log(result);
+				modalClose(modal);
+				setTimeout(() => {
+					snackbarShow(undefined, 0);
+				}, 800);
+			}
 		}
 	})
 });

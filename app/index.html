@@ -226,7 +226,7 @@
 											<span class="design__label">Цвет полотна:</span>
 											<div class="design__buttons">
 												<label class="design__radio radio">
-													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" value="Черный" required>
+													<input class="radio__input visually-hidden" type="radio" name="Цвет полотна" checked value="Черный" required>
 													<span class="radio__box radio__box--black"></span>
 												</label>
 												<label class="design__radio radio">
@@ -275,7 +275,7 @@
 											<span class="design__label">Цвет окантовки:</span>
 											<div class="design__buttons">
 												<label class="design__radio radio">
-													<input class="radio__input visually-hidden" type="radio" name="Цвет окантовки" value="Черный" required>
+													<input class="radio__input visually-hidden" type="radio" checked name="Цвет окантовки" value="Черный" required>
 													<span class="radio__box radio__box--black"></span>
 												</label>
 												<label class="design__radio radio">
@@ -331,7 +331,7 @@
 									<div class="builder__schild schild">
 										<label class="schild__label">
 											Фирменные шильды:
-											<input class="schild__input main-text" type="number" name="Фирменные шильды (шт.)" min="0" max="100" value="0"> шт.
+											<input class="schild__input main-text" type="text" name="Фирменные шильды (шт.)" min="0" max="100" value="0"> шт.
 										</label>
 										<div class="schild__buttons">
 											<button class="schild__minus btn-reset" type="button" aria-label="Удалить шильд"></button>
@@ -398,6 +398,7 @@
 		FOOTER
 	</div>
 </footer>
+	<div class="snackbar main-text" role="alert" hidden> Ваш заказ успешно отправлен! Мы скоро с Вами свяжемся!</div>
 	<div class='modal' id='modal' aria-labelledby="modal-title" aria-modal='true' role='dialog'>
 	<div class='modal__wrapper'>
 		<div class='modal__content'>

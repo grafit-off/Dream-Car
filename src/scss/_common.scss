@@ -29,6 +29,7 @@
 	-webkit-font-smoothing: inherit;
 	-moz-osx-font-smoothing: inherit;
 	-webkit-appearance: none;
+	transition: box-shadow 0.3s ease, border-radius 0.3s ease;
 	&::-moz-focus-inner {
 		border: 0;
 		padding: 0;
@@ -135,7 +136,6 @@
 // -- //
 
 /*! Main classes */
-
 .main-text {
 	color: var(--color-font);
 	font-size: $fz-text;
@@ -206,16 +206,23 @@
 }
 
 .accent-btn {
+	display: block;
 	padding: 15px 35px;
-	color: #fff;
+
+	border: 1px solid transparent;
 	background-color: #00ab30;
-	transition: border-radius 0.3s ease, box-shadow 0.3s ease;
+	color: #fff;
+	transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
 
 	@media (min-width: $md3+px) {
 		&:hover {
-			border-radius: 20px;
-			box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-			transition: border-radius 0.3s ease, box-shadow 0.3s ease;
+			border: 1px solid #00ab30;
+			background-color: var(--accent-btn-bgcolor);
+			color: #00ab30;
+			transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+		}
+		&:focus {
+			transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
 		}
 	}
 }
