@@ -42,16 +42,21 @@
 /*! Header */
 @import "components/_header";
 
+/*! Hero */
 @import "components/_hero.scss";
 
+/*! Constructor */
 @import "components/_constructor.scss";
+
+/*! Info */
+@import "components/_info.scss";
 
 /*! Footer */
 @import "components/_footer";
 
-// /*! Modals  */
+/*! Modals  */
 @import "components/_modals";
 
-// Snackbar
+/*! Snackbar */
 @import "components/_snackbar.scss";
 // @import "_animations";

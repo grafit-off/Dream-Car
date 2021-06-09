@@ -474,6 +474,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	const formBtn = document.querySelector('.form__submit');
 
 	const data = {
+
+
 	}
 
 	form.addEventListener('submit', async (e) => {
@@ -497,28 +499,30 @@ document.addEventListener("DOMContentLoaded", () => {
 			const canvas = document.querySelectorAll('input[name="Цвет полотна"]');
 			const shape = document.querySelectorAll('input[name="Форма ячейки"]');
 
-			data.name = name;
-			data.tel = tel;
-			data.auto = auto;
-			data.heel = heel;
-			data.frontRow = frontRow;
-			data.backRow = backRow;
-			data.trunk = trunk;
-			data.schild = schild;
+			data.order = {
+			};
+			data.order.name = name;
+			data.order.tel = tel;
+			data.order.auto = auto;
+			data.order.heel = heel;
+			data.order.frontRow = frontRow;
+			data.order.backRow = backRow;
+			data.order.trunk = trunk;
+			data.order.schild = schild;
 
 			shape.forEach((el) => {
 				if (el.checked) {
-					data.shape = el.value;
+					data.order.shape = el.value;
 				}
 			});
 			canvas.forEach((el) => {
 				if (el.checked) {
-					data.canvas = el.value;
+					data.order.canvas = el.value;
 				}
 			});
 			edging.forEach((el) => {
 				if (el.checked) {
-					data.edging = el.value;
+					data.order.edging = el.value;
 				}
 			});
 
