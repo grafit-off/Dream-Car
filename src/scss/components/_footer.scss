@@ -11,7 +11,7 @@
 	}
 
 	&__info {
-		flex: 0 0 calc(33.33%- 13px);
+		flex: 0 0 calc(33.33% - 13px);
 		margin-right: 20px;
 		@include maxwidth(1024) {
 			flex: 0 0 calc(50% - 10px);
@@ -26,7 +26,7 @@
 	}
 
 	&__contacts {
-		flex: 0 0 calc(33.33%- 13px);
+		flex: 0 0 calc(33.33% - 14px);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -46,7 +46,7 @@
 	}
 
 	&__links {
-		flex: 0 0 calc(33.33%- 13px);
+		flex: 0 0 calc(33.33% - 14px);
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
