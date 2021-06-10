@@ -77,9 +77,9 @@
 </head>
 
 <body class="body">
-	<header class="header">
+	<header class="header" id="header">
 	<div class="header__container container">
-		<a class="header__logo link-reset">Dream car</a>
+		<a class="header__logo logo link-reset">Dream car</a>
 		<div class="header__info">
 			<a href="tel:79308200096" class="header__link link-reset">
 				+7 930 820 00 96
@@ -90,7 +90,7 @@
 	</div>
 </header>
 	<main class="main-content">
-		<section class="hero">
+		<section class="hero" id="hero">
 	<div class="hero__container container">
 		<div class="hero__info">
 			<h1 class="hero__heading main-heading text-reset">
@@ -558,7 +558,30 @@
 	</main>
 	<footer class="footer">
 	<div class="footer__container container">
-		FOOTER
+		<div class="footer__info">
+			<a href="#header" class="footer__logo link-reset logo">
+				Dream car
+				<svg>
+					<use xlink:href="img/sprite.svg#arrow-slider"></use>
+				</svg>
+			</a>
+			<small class="footer__copy main-text text-reset">
+				Copyright © 2021 Dream Car
+			</small>
+		</div>
+		<div class="footer__contacts">
+			<span class="footer__label main-text">Контакты:</span>
+			<a href="tel:79308200096" class="footer__link main-text link-reset">
+				+7 930 820 00 96
+			</a>
+			<address class="footer__address main-text text-reset">
+				г. Брянск, пр-д. Московский 49Б
+			</address>
+		</div>
+		<div class="footer__links">
+			<span class="footer__label main-text">Наш instagram:</span>
+			<a href="https://www.instagram.com/xshmotx/" target="_blank" class="footer__link main-text link-reset">instagram.com/xshmotx</a>
+		</div>
 	</div>
 </footer>
 	<div class="snackbar main-text" role="alert" hidden> Ваш заказ успешно отправлен! Мы скоро с Вами свяжемся!</div>

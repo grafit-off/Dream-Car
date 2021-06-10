@@ -159,11 +159,16 @@
 		align-items: center;
 
 		& .swiper-pagination-bullet {
+			flex: 0 0 10px;
 			display: block;
 
 			width: 10px;
 			height: 10px;
 
+			padding: 0;
+
+			outline: 0;
+			border: 0;
 			border-radius: 50%;
 			background-color: var(--color-pagination);
 
@@ -178,8 +183,21 @@
 					transition: background-color 0.3s ease;
 				}
 				&:focus {
-					background-color: var(--color-pagination-active);
-					transition: background-color 0.3s ease;
+					outline: 0;
+					box-shadow: 0 0 0 3px #8edc44;
+					border-radius: 5px;
+					transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+				}
+				&:focus-visible {
+					outline: 0;
+					box-shadow: 0 0 0 3px #8edc44;
+					border-radius: 5px;
+					transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+				}
+				&:focus:not(:focus-visible) {
+					outline: 0;
+					box-shadow: none;
+					border-radius: 0;
 				}
 			}
 		}

@@ -68,6 +68,9 @@
 
 	&__submit {
 		margin-left: auto;
+		@media (max-width: $md4+px) {
+			margin: 0 auto;
+		}
 	}
 }
 

@@ -17,17 +17,6 @@
 		align-items: center;
 	}
 
-	&__logo {
-		font-size: 24px;
-		line-height: 29px;
-		text-transform: uppercase;
-		color: var(--color-font);
-		transition: color 0.3s ease;
-		@media (max-width: $md4+px) {
-			font-size: 16px;
-		}
-	}
-
 	&__info {
 		text-align: right;
 		@media (max-width: $md3+px) {

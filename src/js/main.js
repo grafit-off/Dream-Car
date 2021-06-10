@@ -42,6 +42,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		wrapperClass: "swiper__wrapper",
 		slideClass: "swiper__slide",
 		loop: true,
+		pagination: {
+			bulletElement: 'button'
+		},
+		a11y: {
+			prevSlideMessage: 'Предыдущий слайд',
+			nextSlideMessage: 'Следующий слайд',
+			paginationBulletMessage: `Перейти к слайду {{index}}`
+		},
 		breakpoints: {
 			320: {
 				slidesPerView: 2.05,
@@ -221,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		Идея
 		По нажатию на картинку в списке, передавать src в выводимое изображение,
 		а src выводимого изображения передавть картинке по которой произошел клик.
-	
+		
 		План
 		1. Создать переменные выводимого изображения и блока списка картинок/кнопок.
 		2. Добавить слушатель на блок и способом делегирования отлавливать картинку
