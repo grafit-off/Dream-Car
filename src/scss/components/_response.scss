@@ -1,0 +1,109 @@
+.response {
+	padding-bottom: 40px;
+	@media (max-width: $md3+px) {
+		padding-bottom: 20px;
+	}
+	&__container {
+		border-bottom: 1px solid var(--color-pagination);
+	}
+}
+
+.reviews {
+	&__form {
+		margin: 0 auto;
+		margin-bottom: 30px;
+	}
+
+	&__list {
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 30px;
+		}
+	}
+}
+.reviews-form {
+	width: 100%;
+	max-width: 768px;
+
+	&__fieldset {
+	}
+
+	&__legend {
+		margin-bottom: 20px;
+
+		font-size: 30px;
+		font-weight: 700;
+		text-align: center;
+		text-transform: uppercase;
+		@media (max-width: $md3+px) {
+			margin-bottom: 10px;
+
+			font-size: 20px;
+		}
+		@media (max-width: $md4+px) {
+			margin-bottom: 0;
+		}
+	}
+
+	&__label {
+		display: block;
+
+		margin-bottom: 20px;
+		@media (max-width: $md3+px) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__label-text {
+	}
+
+	&__input {
+		&--textarea {
+			height: 180px;
+			resize: none;
+		}
+	}
+
+	&__submit {
+		margin-left: auto;
+	}
+}
+
+.review {
+	display: flex;
+	flex-direction: column;
+
+	padding: 20px;
+	border-radius: 15px;
+	background-color: var(--order-background);
+	&:not(:last-child) {
+		border-bottom: 1px solid var(--color-pagination);
+	}
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+
+	&__person {
+		flex: 0 0 auto;
+		margin-right: 10px;
+
+		font-weight: 700;
+	}
+
+	&__time {
+		flex: 0 1 auto;
+		align-self: flex-end;
+		text-align: right;
+	}
+
+	&__subject {
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+
+		border-bottom: 1px solid var(--color-pagination);
+	}
+}

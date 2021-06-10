@@ -101,6 +101,7 @@
 	&::-ms-clear {
 		display: none;
 	}
+	-webkit-appearance: none;
 	&::-webkit-search-cancel-button,
 	&::-webkit-search-decoration {
 		-webkit-appearance: none;
@@ -251,6 +252,18 @@
 			width: 15px;
 			height: 15px;
 		}
+	}
+}
+.main-input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #7c7c7c;
+	background-color: var(--color-body);
+	transition: box-shadow 0.3s ease;
+	&:focus {
+		outline: 0;
+		box-shadow: 0 0 0 3px #49d136;
+		transition: box-shadow 0.3s ease;
 	}
 }
 // -- //

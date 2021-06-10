@@ -212,8 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			accordionTriggerDisable(trigger);
 			accordionClose(trigger, body);
 			trigger.focus();
-			console.log(trigger);
-
 		})
 	});
 	// -- //
@@ -397,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// -- //
 
 	// Input Mask
-	const inputTel = document.querySelector('input[type="tel"]');
+	const inputTel = document.querySelectorAll('input[type="tel"]');
 	const inMask = new Inputmask('+7 (999) 999-99-99');
 	inMask.mask(inputTel);
 
@@ -420,6 +418,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				},
 				tel: {
 					required: 'Это поле обязательно!'
+				},
+				email: {
+					required: 'Это поле обязательно!',
+					email: 'Пожалуйста! Введите действительный эмейл!'
 				}
 			},
 			submitHandler: (form, value, ajax) => {
@@ -430,6 +432,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	validate('.form', {
 		name: { required: true }, auto: { required: true }, tel: { required: true }
+	})
+	validate('.call-form', {
+		name: { required: true }, tel: { required: true }
+	})
+	validate('.reviews-form', {
+		name: { required: true }, email: { required: true, email: true }
 	})
 
 
@@ -472,16 +480,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Form Send
 	const form = document.querySelector('.form');
 	const formBtn = document.querySelector('.form__submit');
-
-	const data = {
-
-
-	}
+	const data = {}
 
 	form.addEventListener('submit', async (e) => {
 		e.preventDefault();
 		formBtn.disabled = true;
-
 		setTimeout(() => {
 			formBtn.disabled = false;
 		}, 1000);
@@ -499,8 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			const canvas = document.querySelectorAll('input[name="Цвет полотна"]');
 			const shape = document.querySelectorAll('input[name="Форма ячейки"]');
 
-			data.order = {
-			};
+			data.order = {};
 			data.order.name = name;
 			data.order.tel = tel;
 			data.order.auto = auto;
@@ -549,4 +551,85 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		}
 	})
+
+
+	const callForm = document.querySelector('.call-form');
+	const callFormBtn = document.querySelector('.call-form__submit');
+
+	callForm.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		callFormBtn.disabled = true;
+		setTimeout(() => {
+			callFormBtn.disabled = false;
+		}, 1000);
+
+		if (isValid) {
+			console.log('Sending data...');
+
+			data.callback = {};
+
+			const callInputName = callForm.querySelector('input[name="name"]').value;
+			const callInputTel = callForm.querySelector('input[name="tel"]').value;
+
+			data.callback.name = callInputName;
+			data.callback.tel = callInputTel;
+			let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+				method: 'POST',
+				body: JSON.stringify(data),
+				headers: {
+					'Content-Type': 'application/json; charset=utf-8'
+				}
+			})
+			if (await response.ok) {
+				console.log('Request data...');
+				console.log(`Status: ${await response.status}`);
+				let data = await response.json()
+				console.log(data);
+				snackbarShow('Спасибо! Мы скоро Вам перезвоним!', '0');
+			}
+		}
+	});
+
+	const reviewForm = document.querySelector('.reviews-form');
+	const reviewFormbtn = document.querySelector('.reviews-form__submit');
+
+	reviewForm.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		reviewFormbtn.disabled = true;
+		setTimeout(() => {
+			reviewFormbtn.disabled = false;
+		}, 1000);
+
+		if (isValid) {
+			console.log('Sending data...');
+
+			data.review = {
+			}
+
+			const reviewInputName = reviewForm.querySelector('input[name="name"]').value;
+			const reviewInputEmail = reviewForm.querySelector('input[name="email"]').value;
+			const reviewInputSubject = reviewForm.querySelector('input[name="subject"]').value;
+			const reviewInputMessage = reviewForm.querySelector('textarea[name="message"]').value;
+
+			data.review.name = reviewInputName;
+			data.review.email = reviewInputEmail;
+			data.review.subject = reviewInputSubject;
+			data.review.message = reviewInputMessage;
+
+			let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+				method: 'POST',
+				body: JSON.stringify(data),
+				headers: {
+					'Content-Type': 'application/json; charset=utf-8'
+				}
+			})
+			if (await response.ok) {
+				console.log('Request data...');
+				console.log(`Status: ${await response.status}`);
+				let data = await response.json()
+				console.log(data);
+				snackbarShow('Спасибо за отзыв!', '0');
+			}
+		}
+	});
 });

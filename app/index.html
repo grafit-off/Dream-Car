@@ -396,19 +396,151 @@
 	<div class="info__container container">
 		<div class="accordion list-reset">
 			<div class="accordion__item">
-				<h3 class="accordion__heading">
+				<h2 class="accordion__heading">
 					<button class="accordion__trigger main-heading text-reset btn-reset " aria-expanded="false">
 						как получить заказ
 						<svg aria-hidden="true">
 							<use xlink:href="img/sprite.svg#arrow-slider"></use>
 						</svg>
 					</button>
-				</h3>
+				</h2>
 				<div class="accordion__body accordion__body--hidden" aria-hidden="true">
 					<div class="accordion__content ">
-						<div class="about-order">
-							<ul class="about-order__list">
-								<li class="about-order__item"></li>
+						<div class="accordion__about-order about-order">
+							<p class="about-order__text main-text">Сделайте заказ на сайте или по телефону, затем вы сможете получить его удобным вам способом:</p>
+							<ul class="about-order__list list-reset">
+								<li class="about-order__item about-item about-item--hands">
+
+									<img src="img/about-order1.svg" alt="" class="about-item__image" aria-hidden="true">
+
+									<p class="about-item__text text-reset  main-text">Самовывоз с оплатой при получении заказа</p>
+								</li>
+								<li class="about-order__item about-item about-item--taxi">
+
+									<img src="img/about-order2.svg" alt="" class="about-item__image" aria-hidden="true">
+
+
+									<p class="about-item__text text-reset main-text ">Курьерская доставка по городу, после полной предоплаты</p>
+								</li>
+								<li class="about-order__item about-item about-item--box">
+
+									<img src="img/about-order3.svg" alt="" class="about-item__image" aria-hidden="true">
+
+									<p class="about-item__text text-reset main-text">Отправка по России, после полной предоплаты</p>
+								</li>
+							</ul>
+							<div class="about-order__call call">
+								<h3 class="call__heading main-heading text-reset">Закажите звонок:</h3>
+								<form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="call__form call-form">
+									<fieldset class="call-form__fieldset">
+										<legend class="call-form__legend visually-hidden">Контактная информация:</legend>
+										<label class="call-form__label">
+											<span class="call-form__text visually-hidden">Ваше имя</span>
+											<input type="text" class="call-form__input main-input input-reset main-text" name="name" data-validate-field="name" placeholder="Ваше имя">
+										</label>
+										<label class="call-form__label">
+											<span class="call-form__text visually-hidden">Ваше имя</span>
+											<input type="tel" class="call-form__input main-input input-reset main-text" name="tel" data-validate-field="tel" placeholder="Ваш номер">
+										</label>
+									</fieldset>
+									<button class="call-form__submit btn-reset accent-btn main-text">Заказать звонок</button>
+								</form>
+							</div>
+						</div>
+						<button class="accordion__close accordion-close main-text btn-reset">
+							<svg aria-hidden="true" class="accordion-close__icon">
+								<use xlink:href="img/sprite.svg#arrow-slider"></use>
+							</svg>
+							Свернуть
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+		<section class="response">
+	<div class="response__container container">
+		<div class="accordion list-reset">
+			<div class="accordion__item">
+				<h2 class="accordion__heading">
+					<button class="accordion__trigger main-heading text-reset btn-reset " aria-expanded="false">
+						Отзывы клиентов
+						<svg aria-hidden="true">
+							<use xlink:href="img/sprite.svg#arrow-slider"></use>
+						</svg>
+					</button>
+				</h2>
+				<div class="accordion__body accordion__body--hidden" aria-hidden="true">
+					<div class="accordion__content ">
+						<div class="accordion__reviews reviews">
+							<form class="reviews__form reviews-form" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+								<fieldset class="reviews-form__fieldset">
+									<legend class="reviews-form__legend main-text text-reset"> Оставить отзыв </legend>
+									<label class="reviews-form__label">
+										<span class="reviews-form__label-text main-text"> Ваше имя: </span>
+										<input type="text" class="reviews-form__input main-input main-text input-reset" data-validate-field="name" name="name" placeholder="Имя">
+									</label>
+									<label class="reviews-form__label">
+										<span class="reviews-form__label-text main-text"> Ваш эмайл: </span>
+										<input type="email" class="reviews-form__input main-input main-text input-reset" data-validate-field="email" name="email" placeholder="E-mail">
+									</label>
+									<label class="reviews-form__label">
+										<span class="reviews-form__label-text main-text"> Тема сообщения: </span>
+										<input type="text" class="reviews-form__input main-input main-text input-reset" data-validate-field="name" name="subject" placeholder="Тема">
+									</label>
+									<label class="reviews-form__label">
+										<span class="reviews-form__label-text main-text"> Ваше сообщение: </span>
+										<textarea class="reviews-form__input reviews-form__input--textarea main-input main-text input-reset" data-validate-field="name" name="message" placeholder="Сообщение"></textarea>
+									</label>
+								</fieldset>
+								<button class="reviews-form__submit btn-reset main-text accent-btn">Отправить</button>
+							</form>
+							<ul class="reviews__list list-reset">
+								<li class="reviews__item review">
+									<div class="review__info">
+										<span class="review__person main-text text-reset"> Александр Деминцев</span>
+										<time class="review__time main-text text-reset" datetime="2021-07-10 19:00">10.07.21 08:00</time>
+									</div>
+									<p class="review__subject main-text text-reset">Все круто!</p>
+									<p class="review__text main-text text-reset">
+										Заказывал коврики на Citroent C5 Заказ выполнили и доставили очень быстро. На машину, несмотря на хитрые крепления, подошли идеально. Молодцы!
+									</p>
+								</li>
+								<li class="reviews__item review">
+									<div class="review__info">
+										<span class="review__person main-text text-reset"> Любовь Палханова</span>
+										<time class="review__time main-text text-reset" datetime="2021-07-10 19:00">07.07.21 16:00</time>
+									</div>
+									<p class="review__subject main-text text-reset"> Быстро! </p>
+									<p class="review__text main-text text-reset">
+										Заказывала на Сherry Tiggo4 2020г коврики. Доставка довольно таки быстро, 5 дней до Мурманской области. Качество оценю в процессе использования, по размеру подошли, отлично. Порадовала
+										оплата при получении. Спасибо команде, буду рекомендовать вас другим.
+									</p>
+								</li>
+								<li class="reviews__item review">
+									<div class="review__info">
+										<span class="review__person main-text text-reset"> Роман Маклак</span>
+										<time class="review__time main-text text-reset" datetime="2021-07-10 19:00">26.06.21 11:00</time>
+									</div>
+									<p class="review__subject main-text text-reset">Легли как литые, кромка прошита очень хорошо</p>
+									<p class="review__text main-text text-reset">
+										Спасибо вам, ребята, забрал с распродажи на Honda Civic ferio es2 черные ковры комплект за 1600р, заказал 17 мая пришли в Курган 26 числа, подошли чётко, даже шильдик в комплекте шёл
+										бесплатно, качество вышка. Скептично относился но теперь буду рекомендовать всем знакомым. По такой цене это реально подарок.
+									</p>
+								</li>
+								<li class="reviews__item review">
+									<div class="review__info">
+										<span class="review__person main-text text-reset"> Сергей Лебедев</span>
+										<time class="review__time main-text text-reset" datetime="2021-07-10 19:00">09.05.21 08:00</time>
+									</div>
+									<p class="review__subject main-text text-reset">Буду рекомендовать друзья</p>
+									<p class="review__text main-text text-reset">
+										Огромное спасибо компание DreamCar за шикарные коврики на тойота филдер, вид салоны сразу поменялся, очень приятное общение с сотрудниками компании. Пошли на встречу принять заказ даже по
+										телефону так как часовой пояс разный, что меня еще по радовало, что оплата при получении. После поступления заказа на почту сотрудники связались со мной. Коврики приятные на ощупь‚ липучки
+										для фиксации на своих местах.
+									</p>
+								</li>
 							</ul>
 						</div>
 						<button class="accordion__close accordion-close main-text btn-reset">
@@ -446,15 +578,15 @@
 					<legend class="form__legend visually-hidden">Контактная информация</legend>
 					<label class="form__label">
 						<span class="form__label-text visually-hidden">Ваше имя</span>
-						<input type="text" class="form__input input-reset main-text" name="Имя" data-validate-field="name" placeholder="Ваше имя" required>
+						<input type="text" class="form__input main-input input-reset main-text" name="Имя" data-validate-field="name" placeholder="Ваше имя" required>
 					</label>
 					<label class="form__label">
 						<span class="form__label-text visually-hidden">Модель автомобиля</span>
-						<input type="text" class="form__input input-reset main-text" name="Модель автомобиля" data-validate-field="auto" placeholder="Модель автомобиля" required>
+						<input type="text" class="form__input main-input input-reset main-text" name="Модель автомобиля" data-validate-field="auto" placeholder="Модель автомобиля" required>
 					</label>
 					<label class="form__label">
-						<span class="form__label-text visually-hidden">Номер телефона</span>
-						<input type="tel" class="form__input input-reset main-text" name="Номер телефона" data-validate-field="tel" placeholder="Номер телефона" required>
+						<span class="form__label-text  visually-hidden">Номер телефона</span>
+						<input type="tel" class="form__input main-input input-reset main-text" name="Номер телефона" data-validate-field="tel" placeholder="Номер телефона" required>
 					</label>
 				</fieldset>
 				<button class="form__submit accent-btn main-text btn-reset">Отправить</button>

@@ -131,19 +131,6 @@
 		}
 	}
 
-	&__input {
-		width: 100%;
-		padding: 10px;
-		border: 1px solid #7c7c7c;
-		background-color: var(--color-body);
-		transition: box-shadow 0.3s ease;
-		&:focus {
-			outline: 0;
-			box-shadow: 0 0 0 3px #49d136;
-			transition: box-shadow 0.3s ease;
-		}
-	}
-
 	&__submit {
 		margin: 0 auto;
 	}
