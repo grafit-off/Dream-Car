@@ -13,8 +13,9 @@
 		flex-wrap: wrap;
 
 		width: 100%;
-		margin-bottom: 30px;
+		margin: 130px 0;
 		@media (max-width: $md3+px) {
+			margin: 20px 0;
 			align-items: center;
 			flex-direction: column;
 		}
