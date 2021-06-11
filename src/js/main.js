@@ -430,6 +430,12 @@ document.addEventListener("DOMContentLoaded", () => {
 				email: {
 					required: 'Это поле обязательно!',
 					email: 'Пожалуйста! Введите действительный эмейл!'
+				},
+				message: {
+					required: 'Это поле обязательно!'
+				},
+				subject: {
+					required: 'Это поле обязательно!'
 				}
 			},
 			submitHandler: (form, value, ajax) => {
@@ -445,7 +451,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		name: { required: true }, tel: { required: true }
 	})
 	validate('.reviews-form', {
-		name: { required: true }, email: { required: true, email: true }
+		name: { required: true }, subject: { required: true }, message: { required: true }, email: { required: true, email: true }
 	})
 
 
