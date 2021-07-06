@@ -31,7 +31,7 @@
 
 .snackbar.show-notification {
 	visibility: visible;
-	background-color: #333;
+	background-color: #3bc73e;
 	/* Если 3000 в js, то в стилях 2.6s */
 	animation: fadein 0.5s, fadeout 0.5s 2.6s;
 }

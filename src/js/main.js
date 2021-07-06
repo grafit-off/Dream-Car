@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	if (localStorage.getItem('site-theme') === undefined || localStorage.getItem('site-theme') === null) {
-		initialState('light-theme');
+		initialState('dark-theme');
 	} else {
 		initialState(localStorage.getItem('site-theme'));
 		if (localStorage.getItem('site-theme') === 'dark-theme') {
@@ -225,22 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	// -- //
 
 	// Image Preview
-	/* 
-		Идея
-		По нажатию на картинку в списке, передавать src в выводимое изображение,
-		а src выводимого изображения передавть картинке по которой произошел клик.
-		
-		План
-		1. Создать переменные выводимого изображения и блока списка картинок/кнопок.
-		2. Добавить слушатель на блок и способом делегирования отлавливать картинку
-			по которой произошел клик.
-		3. Получить в новые переменные src и alt картинки по которой произошел клик
-			и src, alt выводимого изображение.
-		4. Заменить src, alt выводимого изображения на src,alt картинки по которой произошел клик
-			из переменной и заменить src,alt картинки по которой произошел клик
-			на src,alt выводимого изображения.
-		?Почему бы просто не забрать сам елемент, в чем смысл игры с alt и src?
-	*/
 	const mainImg = document.querySelector('.image-preview__current');
 	const imgList = document.querySelector('.image-preview__list');
 
@@ -425,7 +409,8 @@ document.addEventListener("DOMContentLoaded", () => {
 					required: 'Это поле обязательно!'
 				},
 				tel: {
-					required: 'Это поле обязательно!'
+					required: 'Это поле обязательно!',
+					strength: 'Номер введен неправильно!'
 				},
 				email: {
 					required: 'Это поле обязательно!',
@@ -445,16 +430,24 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	validate('.form', {
-		name: { required: true }, auto: { required: true }, tel: { required: true }
+		name: { required: true }, auto: { required: true }, tel: {
+			required: true, minLength: 18, maxLenght: 18,
+			strength: {
+				custom: /^\+7 \([0-9]+\) [0-9]+-[0-9]+-[0-9]+$/i
+			}
+		}
 	})
 	validate('.call-form', {
-		name: { required: true }, tel: { required: true }
+		name: { required: true }, tel: {
+			required: true, minLength: 18, maxLenght: 18,
+			strength: {
+				custom: /^\+7 \([0-9]+\) [0-9]+-[0-9]+-[0-9]+$/i
+			}
+		}
 	})
 	validate('.reviews-form', {
 		name: { required: true }, subject: { required: true }, message: { required: true }, email: { required: true, email: true }
 	})
-
-
 	// -- //
 
 
@@ -492,9 +485,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	// -- //
 
 	// Form Send
+	const constForm = document.querySelector('.accordion__constructor-form');
 	const form = document.querySelector('.form');
 	const formBtn = document.querySelector('.form__submit');
 	const data = {}
+
+	constForm.addEventListener('submit', () => {
+		e.preventDefault();
+	})
 
 	form.addEventListener('submit', async (e) => {
 		e.preventDefault();
@@ -503,10 +501,14 @@ document.addEventListener("DOMContentLoaded", () => {
 			formBtn.disabled = false;
 		}, 1000);
 
-		if (isValid) {
-			const name = document.querySelector('input[name="Имя"]').value;
-			const auto = document.querySelector('input[name="Модель автомобиля"]').value;
-			const tel = inputTel.value;
+		if (isValid
+			&& !document.querySelector('input[name="Имя"]').classList.contains('js-validate-error-field')
+			&& !document.querySelector('input[name="Модель автомобиля"]').classList.contains('js-validate-error-field')
+			&& !form.querySelector("input[type='tel']").classList.contains('js-validate-error-field')) {
+
+			const name = form.querySelector('input[name="Имя"]').value;
+			const auto = form.querySelector('input[name="Модель автомобиля"]').value;
+			const tel = form.querySelector("input[type='tel']").value;
 			const heel = heelInp.checked;
 			const frontRow = frontRowInp.checked;
 			const backRow = backRowInp.checked;
@@ -577,7 +579,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			callFormBtn.disabled = false;
 		}, 1000);
 
-		if (isValid) {
+		if (isValid && !callForm.querySelector('input[name="name"]').classList.contains('js-validate-error-field')
+			&& !callForm.querySelector('input[name="tel"]').classList.contains('js-validate-error-field')
+		) {
 			console.log('Sending data...');
 
 			data.callback = {};
@@ -614,7 +618,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			reviewFormbtn.disabled = false;
 		}, 1000);
 
-		if (isValid) {
+		if (isValid && !reviewForm.querySelector('input[name="name"]').classList.contains('js-validate-error-field')
+			&& !reviewForm.querySelector('input[name="email"]').classList.contains('js-validate-error-field')
+			&& !reviewForm.querySelector('input[name="subject"]').classList.contains('js-validate-error-field')
+			&& !reviewForm.querySelector('textarea[name="message"]').classList.contains('js-validate-error-field')) {
 			console.log('Sending data...');
 
 			data.review = {
