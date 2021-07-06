@@ -527,7 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			data.order.backRow = backRow;
 			data.order.trunk = trunk;
 			data.order.schild = schild;
-			data.order.price = orderSum;
+			data.order.price = orderPrice.textContent;
 
 			shape.forEach((el) => {
 				if (el.checked) {
