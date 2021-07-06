@@ -562,7 +562,11 @@ document.addEventListener("DOMContentLoaded", () => {
 				console.log(result);
 				modalClose(modal);
 				setTimeout(() => {
-					snackbarShow(undefined, 0);
+					snackbarShow("Ваш заказ успешно отправлен! Мы скоро с Вами свяжемся!", 0);
+				}, 800);
+			} else {
+				setTimeout(() => {
+					snackbarShow("Ошибка! Попробуйте еще раз!", 1);
 				}, 800);
 			}
 		}
@@ -604,6 +608,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				let data = await response.json()
 				console.log(data);
 				snackbarShow('Спасибо! Мы скоро Вам перезвоним!', '0');
+			} else {
+				setTimeout(() => {
+					snackbarShow("Ошибка! Попробуйте еще раз!", 1);
+				}, 800);
 			}
 		}
 	});
@@ -650,6 +658,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				let data = await response.json()
 				console.log(data);
 				snackbarShow('Спасибо за отзыв!', '0');
+			} else {
+				setTimeout(() => {
+					snackbarShow("Ошибка! Попробуйте еще раз!", 1);
+				}, 800);
 			}
 		}
 	});
