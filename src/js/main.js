@@ -501,7 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			formBtn.disabled = false;
 		}, 1000);
 
-		if (isValid
+		if (isValid && orderSum > 0
 			&& !document.querySelector('input[name="Имя"]').classList.contains('js-validate-error-field')
 			&& !document.querySelector('input[name="Модель автомобиля"]').classList.contains('js-validate-error-field')
 			&& !form.querySelector("input[type='tel']").classList.contains('js-validate-error-field')) {
@@ -527,6 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			data.order.backRow = backRow;
 			data.order.trunk = trunk;
 			data.order.schild = schild;
+			data.order.price = orderSum;
 
 			shape.forEach((el) => {
 				if (el.checked) {
@@ -569,6 +570,13 @@ document.addEventListener("DOMContentLoaded", () => {
 					snackbarShow("Ошибка! Попробуйте еще раз!", 1);
 				}, 800);
 			}
+		}
+		if (orderSum == 0) {
+			let modal = form.closest('.modal');
+			modalClose(modal);
+			setTimeout(() => {
+				snackbarShow("Ваш заказ пуст! Прежде чем отправить заказ, выберите товар!", 1);
+			}, 800);
 		}
 	})
 
